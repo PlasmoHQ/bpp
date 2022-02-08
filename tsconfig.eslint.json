@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "types": ["@types/node"],
+    "noEmit": true,
+    "allowJs": true
+  },
+  "include": ["__tests__/**/*.test.ts"]
+}
