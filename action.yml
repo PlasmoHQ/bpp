@@ -1,11 +1,11 @@
-name: 'Browser Plugin Publisher'
-description: 'Publish your browser plugin anywhere using a single action.'
-author: 'Plasmo Corp.'
+name: "Browser Plugin Publisher"
+description: "Publish your browser plugin anywhere using a single action."
+author: "Plasmo Corp."
 inputs:
   milliseconds: # change this
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: "input description here"
+    default: "3000"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
