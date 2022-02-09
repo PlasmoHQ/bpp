@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://plasmo.com/bpp/keys.schema.json",
+  "title": "Browser Plugin Publisher keys",
+  "description": "Keys for the Browser Plugin Publisher.",
+  "$ref": "#/definitions/Root",
+  "definitions": {
+    "Root": {
+      "type": "object",
+      "properties": {
+        "chrome": {
+          "$ref": "#/definitions/Chrome"
+        },
+        "firefox": {
+          "$ref": "#/definitions/Firefox"
+        },
+        "opera": {
+          "$ref": "#/definitions/Opera"
+        },
+        "edge": {
+          "$ref": "#/definitions/Edge"
+        }
+      }
+    },
+    "Chrome": {
+      "description": "For refreshToken, clientId and clientSecret, follow: https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md",
+      "type": "object",
+      "properties": {
+        "extId": {
+          "type": "string",
+          "description": "Get it from https://chrome.google.com/webstore/detail/EXT_ID"
+        },
+        "refreshToken": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        }
+      },
+      "required": ["refreshToken", "clientId", "clientSecret"]
+    },
+    "Firefox": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "extId": {
+          "type": "string",
+          "description": "Get it from https://addons.mozilla.org/addon/EXT_ID"
+        },
+        "sessionid": {
+          "type": "string",
+          "description": "npx web-ext-deploy --get-cookies=firefox"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "zipSource": {
+          "type": "string"
+        },
+        "changelog": {
+          "type": "string",
+          "description": "Provide changelog for the Firefox users"
+        },
+        "devChangelog": {
+          "type": "string",
+          "description": "Provide changelog for the Firefox Add-ons reviewers"
+        }
+      },
+      "required": ["extId", "sessionid"]
+    },
+    "Edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "extId": {
+          "type": "string",
+          "description": "Get it from https://partner.microsoft.com/en-us/dashboard/microsoftedge/EXT_ID"
+        },
+        "cookie": {
+          "type": "string",
+          "description": "npx web-ext-deploy --get-cookies=edge"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "devChangelog": {
+          "type": "string",
+          "description": "Provide changelog for the Edge Add-ons reviewers"
+        }
+      },
+      "required": ["extId", "cookie"]
+    },
+    "Opera": {
+      "title": "Opera",
+      "type": "object",
+      "additionalProperties": false,
+      "description": "NOTE: Opera add-ons reviewer require inspecting your extension's source code.",
+      "properties": {
+        "packageId": {
+          "type": "integer",
+          "description": "Get it from https://addons.opera.com/developer/package/PACKAGE_ID"
+        },
+        "sessionid": {
+          "type": "string",
+          "description": "npx web-ext-deploy --get-cookies=opera"
+        },
+        "csrftoken": {
+          "type": "string",
+          "description": "npx web-ext-deploy --get-cookies=opera"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "changelog": {
+          "type": "string",
+          "description": "Provide changelog for the Opera users"
+        }
+      },
+      "required": ["packageId", "csrftoken", "sessionid"]
+    }
+  }
+}

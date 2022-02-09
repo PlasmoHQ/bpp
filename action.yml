@@ -2,10 +2,12 @@ name: "Browser Plugin Publisher"
 description: "Publish your browser plugin anywhere using a single action."
 author: "Plasmo Corp."
 inputs:
-  keys: # change this
+  keys:
     required: true
     description: "A JSON string containing the keys to be used for the submission process."
-
+  artifact:
+    required: false
+    description: "The plugin zip artifact to be published."
 runs:
   using: "node16"
   main: "dist/index.js"

@@ -27,6 +27,11 @@ async function run(): Promise<void> {
     // Path to the zip file to be deployed
     const artifact = core.getInput("artifact")
 
+    if (process.env.NODE_ENV === "test") {
+      core.debug(Object.keys(keys).join(","))
+      return
+    }
+
     const deployPromises = Object.entries(keys).map(([browser, key]) => {
       if (!key.zip) {
         core.debug(`No zip for ${browser} provided`)
