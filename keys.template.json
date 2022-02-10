@@ -1,0 +1,23 @@
+{
+  "#note": "Replace $schema with https://raw.githubusercontent.com/plasmo-corp/bpp/main/keys.schema.json",
+  "$schema": "./keys.schema.json",
+  "chrome": {
+    "clientId": "123",
+    "clientSecret": "456",
+    "refreshToken": "789",
+    "extId": "abcd"
+  },
+  "firefox": {
+    "extId": "123",
+    "sessionid": "abcd"
+  },
+  "edge": {
+    "extId": "123",
+    "cookie": "abcd"
+  },
+  "opera": {
+    "packageId": 0,
+    "csrftoken": "abcd",
+    "sessionid": "abcd"
+  }
+}
