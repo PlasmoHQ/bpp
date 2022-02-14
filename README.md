@@ -41,6 +41,33 @@ steps:
 
 This works if you're only targeting chrome and edge for example.
 
+### Safari
+
+Safari deployment must be done in a macosx container. One way of doing so is by adding another step in the deployment pipeline which cache your artifact:
+
+```yaml
+build:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - run: your-setup-and-bundling-script
+    - uses: actions/upload-artifact@v2
+      with:
+        path: dist
+safari:
+  runs-on: macos-latest
+  needs: build
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v2
+      with:
+        path: dist
+    - uses: maxim-lobanov/setup-xcode@v1
+    - run: yarn safari-pack
+```
+
+The above will generate a safari extension and upload it to the safari extension marketplace.
+
 ## Acknowledgements
 
 - [web-ext-deploy](https://github.com/avi12/web-ext-deploy) by [avi12](https://github.com/avi12)
