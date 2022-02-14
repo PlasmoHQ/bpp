@@ -1,6 +1,9 @@
 name: "Browser Plugin Publisher"
 description: "Publish your browser plugin anywhere using a single action."
 author: "Plasmo Corp."
+branding:
+  icon: upload-cloud
+  color: purple
 inputs:
   keys:
     required: true
