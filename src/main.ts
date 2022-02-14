@@ -5,12 +5,14 @@ import {
   deployFirefox,
   deployOpera
 } from "web-ext-deploy"
+import { deploySafari } from "./deploy-safari"
 
 enum BrowserName {
   Chrome = "chrome",
   Firefox = "firefox",
   Opera = "opera",
-  Edge = "edge"
+  Edge = "edge",
+  Safari = "safari"
 }
 
 type Keys = {
@@ -18,6 +20,7 @@ type Keys = {
   [BrowserName.Firefox]: Parameters<typeof deployFirefox>[0]
   [BrowserName.Opera]: Parameters<typeof deployOpera>[0]
   [BrowserName.Edge]: Parameters<typeof deployEdge>[0]
+  [BrowserName.Safari]: Parameters<typeof deploySafari>[0]
 }
 
 async function run(): Promise<void> {
@@ -53,6 +56,8 @@ async function run(): Promise<void> {
           return deployOpera(key as Keys[BrowserName.Opera])
         case BrowserName.Edge:
           return deployEdge(key as Keys[BrowserName.Edge])
+        case BrowserName.Safari:
+          return deploySafari(key as Keys[BrowserName.Safari])
         default:
           throw new Error(`Unknown browser ${browser}`)
       }

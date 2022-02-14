@@ -31,13 +31,9 @@ jobs:
   safari-package:
     runs-on: macos-latest
     steps:
-      - run: |
-          echo Hello World
-      - name: Setup XCode
       - uses: actions/checkout@v2
       - uses: ./
         env:
           NODE_ENV: "test"
         with:
-          artifact: build/artifact.zip
-          keys: ${{ secrets.BPP_KEYS }}
+          keys: ${{ secrets.BPP_SAFARI_KEYS }}
