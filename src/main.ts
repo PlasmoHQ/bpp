@@ -24,6 +24,13 @@ type Keys = {
   [BrowserName.Edge]: EdgeOptions
 }
 
+const supportedBrowserSet = new Set([
+  BrowserName.Chrome,
+  BrowserName.Firefox,
+  BrowserName.Opera,
+  BrowserName.Edge
+])
+
 async function run(): Promise<void> {
   try {
     // All the keys necessary to deploy the extension
@@ -37,6 +44,10 @@ async function run(): Promise<void> {
     }
 
     const deployPromises = Object.entries(keys).map(([browser, key]) => {
+      if (!supportedBrowserSet.has(browser as BrowserName)) {
+        return
+      }
+
       if (!key.zip) {
         debug(`No zip for ${browser} provided`)
         if (!artifact) {

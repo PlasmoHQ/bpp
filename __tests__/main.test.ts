@@ -6,7 +6,7 @@ import { cwd, env, execPath } from "process"
 
 test("dry runner with env/stdout protocol", async () => {
   const templateKeysPath = join(cwd(), "keys.template.json")
-  const ip = join(cwd(), "dist", "index.cjs")
+  const ip = join(cwd(), "dist", "index.js")
   const templateKeys = await readFile(templateKeysPath, "utf8")
 
   env["INPUT_KEYS"] = templateKeys

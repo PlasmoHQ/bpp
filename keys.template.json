@@ -3,7 +3,6 @@
   "$schema": "./keys.schema.json",
   "chrome": {
     "clientId": "123",
-    "clientSecret": "456",
     "refreshToken": "789",
     "extId": "abcd"
   },

@@ -40,7 +40,7 @@
           "type": "string"
         }
       },
-      "required": ["extId", "refreshToken", "clientId", "clientSecret"]
+      "required": ["extId", "refreshToken", "clientId"]
     },
     "Firefox": {
       "type": "object",
