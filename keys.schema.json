@@ -31,18 +31,21 @@
           "description": "Get it from https://chrome.google.com/webstore/detail/EXT_ID"
         },
         "refreshToken": {
-          "type": "string"
+          "type": "string",
+          "description": "Read: https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md"
         },
         "clientId": {
-          "type": "string"
-        },
-        "clientSecret": {
           "type": "string",
-          "description": "Only for chrome store v1 API fallback"
+          "description": "Read: https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md"
         },
-
         "zip": {
           "type": "string"
+        },
+        "target": {
+          "type": "string",
+          "description": "The target audience to publish to. Defaults to 'default'",
+          "enum": ["default", "trustedTesters"],
+          "default": "default"
         }
       },
       "required": ["extId", "refreshToken", "clientId"]
