@@ -10839,9 +10839,9 @@ var require_main = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/utils.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/utils.js
 var require_utils3 = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/utils.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/utils.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? function(o, m, k, k2) {
       if (k2 === void 0)
@@ -17212,9 +17212,9 @@ var require_source5 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+cwu@0.7.0/node_modules/@plasmo-corp/cwu/dist/index.js
+// node_modules/.pnpm/@plasmo-corp+cwu@1.1.0/node_modules/@plasmo-corp/cwu/dist/index.js
 var require_dist2 = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+cwu@0.7.0/node_modules/@plasmo-corp/cwu/dist/index.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+cwu@1.1.0/node_modules/@plasmo-corp/cwu/dist/index.js"(exports2) {
     "use strict";
     var __awaiter2 = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -17346,7 +17346,7 @@ var require_dist2 = __commonJS({
           }
           this.options[field] = options[field];
         }
-        if ("clientSecret" in options) {
+        if (typeof options.clientSecret === "string" && options.clientSecret.length > 0) {
           this.options.clientSecret = options.clientSecret;
         }
       }
@@ -17463,9 +17463,9 @@ var require_dist2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/chrome/chrome-deploy.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/chrome/chrome-deploy.js
 var require_chrome_deploy = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/chrome/chrome-deploy.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/chrome/chrome-deploy.js"(exports2) {
     "use strict";
     var __awaiter2 = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -17503,14 +17503,14 @@ var require_chrome_deploy = __commonJS({
     var fs_1 = __importDefault(require("fs"));
     var utils_js_1 = require_utils3();
     var store = "Chrome";
-    function deployToChrome({ extId: extensionId, clientId, clientSecret, refreshToken, verbose, zip }) {
+    function deployToChrome({ extId: extensionId, clientId, refreshToken, clientSecret, verbose, zip }) {
       return __awaiter2(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter2(this, void 0, void 0, function* () {
           const client = (0, cwu_1.chromeWebstoreUpload)({
             extensionId,
             clientId,
-            clientSecret,
-            refreshToken
+            refreshToken,
+            clientSecret
           });
           if (verbose) {
             console.log((0, utils_js_1.getVerboseMessage)({
@@ -17539,9 +17539,9 @@ var require_chrome_deploy = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/chrome/chrome-input.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/chrome/chrome-input.js
 var require_chrome_input = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/chrome/chrome-input.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/chrome/chrome-input.js"(exports2) {
     "use strict";
     var __awaiter2 = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -17584,9 +17584,6 @@ var require_chrome_input = __commonJS({
         }
         if (!options.clientId) {
           throw new Error(getErrorMessage("No client ID is provided. To get one: https://github.com/DrewML/chrome-webstore-upload/blob/master/How%20to%20generate%20Google%20API%20keys.md"));
-        }
-        if (!options.clientSecret) {
-          throw new Error(getErrorMessage("No client secret is provided. To get one: https://github.com/DrewML/chrome-webstore-upload/blob/master/How%20to%20generate%20Google%20API%20keys.md"));
         }
         if (!options.zip) {
           throw new Error(getErrorMessage("No zip is provided"));
@@ -43653,9 +43650,9 @@ var require_cjs_entry = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/edge/edge-deploy.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/edge/edge-deploy.js
 var require_edge_deploy = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/edge/edge-deploy.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/edge/edge-deploy.js"(exports2) {
     "use strict";
     var __awaiter2 = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -44024,9 +44021,9 @@ var require_edge_deploy = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/edge/edge-input.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/edge/edge-input.js
 var require_edge_input = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/edge/edge-input.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/edge/edge-input.js"(exports2) {
     "use strict";
     var __awaiter2 = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -44094,9 +44091,9 @@ web-ext-deploy --get-cookies=edge`));
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/firefox/firefox-deploy.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/firefox/firefox-deploy.js
 var require_firefox_deploy = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/firefox/firefox-deploy.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/firefox/firefox-deploy.js"(exports2) {
     "use strict";
     var __awaiter2 = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -44373,9 +44370,9 @@ var require_firefox_deploy = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/firefox/firefox-input.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/firefox/firefox-input.js
 var require_firefox_input = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/firefox/firefox-input.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/firefox/firefox-input.js"(exports2) {
     "use strict";
     var __awaiter2 = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -44455,9 +44452,9 @@ web-ext-deploy --get-cookies=firefox`));
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/opera/opera-deploy.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/opera/opera-deploy.js
 var require_opera_deploy = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/opera/opera-deploy.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/opera/opera-deploy.js"(exports2) {
     "use strict";
     var __awaiter2 = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -44805,9 +44802,9 @@ var require_opera_deploy = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/opera/opera-input.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/opera/opera-input.js
 var require_opera_input = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/opera/opera-input.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/stores/opera/opera-input.js"(exports2) {
     "use strict";
     var __awaiter2 = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -44882,9 +44879,9 @@ web-ext-deploy --get-cookies=opera`));
   }
 });
 
-// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/index.js
+// node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/index.js
 var require_dist4 = __commonJS({
-  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@0.9.0/node_modules/@plasmo-corp/web-ext-deploy/dist/index.js"(exports2) {
+  "node_modules/.pnpm/@plasmo-corp+web-ext-deploy@1.0.0/node_modules/@plasmo-corp/web-ext-deploy/dist/index.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.deployOpera = exports2.OperaOptions = exports2.deployFirefox = exports2.FirefoxOptions = exports2.deployEdge = exports2.EdgeOptions = exports2.deployChrome = exports2.ChromeOptions = void 0;
