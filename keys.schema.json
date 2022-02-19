@@ -23,7 +23,7 @@
       }
     },
     "Chrome": {
-      "description": "For refreshToken, clientId and clientSecret, follow: https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md",
+      "description": "For refreshToken and clientId, follow: https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md",
       "type": "object",
       "properties": {
         "extId": {
@@ -36,14 +36,11 @@
         "clientId": {
           "type": "string"
         },
-        "clientSecret": {
-          "type": "string"
-        },
         "zip": {
           "type": "string"
         }
       },
-      "required": ["refreshToken", "clientId", "clientSecret"]
+      "required": ["extId", "refreshToken", "clientId", "clientSecret"]
     },
     "Firefox": {
       "type": "object",
