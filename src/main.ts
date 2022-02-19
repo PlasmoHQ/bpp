@@ -1,10 +1,14 @@
-import * as core from "@actions/core"
+import { debug, getInput, info, setFailed } from "@actions/core"
 import {
+  ChromeOptions,
   deployChrome,
   deployEdge,
   deployFirefox,
-  deployOpera
-} from "web-ext-deploy"
+  deployOpera,
+  EdgeOptions,
+  FirefoxOptions,
+  OperaOptions
+} from "@plasmo-corp/web-ext-deploy"
 
 enum BrowserName {
   Chrome = "chrome",
@@ -14,35 +18,46 @@ enum BrowserName {
 }
 
 type Keys = {
-  [BrowserName.Chrome]: Parameters<typeof deployChrome>[0]
-  [BrowserName.Firefox]: Parameters<typeof deployFirefox>[0]
-  [BrowserName.Opera]: Parameters<typeof deployOpera>[0]
-  [BrowserName.Edge]: Parameters<typeof deployEdge>[0]
+  [BrowserName.Chrome]: ChromeOptions
+  [BrowserName.Firefox]: FirefoxOptions
+  [BrowserName.Opera]: OperaOptions
+  [BrowserName.Edge]: EdgeOptions
 }
+
+const supportedBrowserSet = new Set([
+  BrowserName.Chrome,
+  BrowserName.Firefox,
+  BrowserName.Opera,
+  BrowserName.Edge
+])
 
 async function run(): Promise<void> {
   try {
     // All the keys necessary to deploy the extension
-    const keys: Keys = JSON.parse(core.getInput("keys", { required: true }))
+    const keys: Keys = JSON.parse(getInput("keys", { required: true }))
     // Path to the zip file to be deployed
-    const artifact = core.getInput("artifact")
+    const artifact = getInput("artifact")
 
     if (process.env.NODE_ENV === "test") {
-      core.debug(Object.keys(keys).join(","))
+      debug(Object.keys(keys).join(","))
       return
     }
 
     const deployPromises = Object.entries(keys).map(([browser, key]) => {
+      if (!supportedBrowserSet.has(browser as BrowserName)) {
+        return
+      }
+
       if (!key.zip) {
-        core.debug(`No zip for ${browser} provided`)
+        debug(`No zip for ${browser} provided`)
         if (!artifact) {
-          core.debug("No artifact provided")
+          debug("No artifact provided")
           throw new Error(`No artifact available to submit for ${browser}`)
         }
         key.zip = artifact
       }
 
-      core.debug(`Queueing ${browser} submission`)
+      info(`Queueing ${browser} submission`)
 
       switch (browser) {
         case BrowserName.Chrome:
@@ -59,9 +74,9 @@ async function run(): Promise<void> {
     })
 
     await Promise.all(deployPromises)
-    core.setOutput("ok", true)
+    info("All submissions complete")
   } catch (error) {
-    if (error instanceof Error) core.setFailed(error.message)
+    if (error instanceof Error) setFailed(error.message)
   }
 }
 
