@@ -36,6 +36,11 @@
         "clientId": {
           "type": "string"
         },
+        "clientSecret": {
+          "type": "string",
+          "description": "Only for chrome store v1 API fallback"
+        },
+
         "zip": {
           "type": "string"
         }
