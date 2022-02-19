@@ -13,4 +13,4 @@ inputs:
     description: "The plugin zip artifact to be published."
 runs:
   using: "node16"
-  main: "dist/index.mjs"
+  main: "dist/index.js"
