@@ -1,6 +1,6 @@
 {
   "name": "@plasmo/bpp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "description": "Browser Plugin Publisher",
   "main": "lib/main.js",
@@ -29,7 +29,7 @@
   "license": "ISC",
   "dependencies": {
     "@actions/core": "1.6.0",
-    "@plasmo-corp/web-ext-deploy": "1.0.0"
+    "@plasmo-corp/web-ext-deploy": "1.2.0"
   },
   "devDependencies": {
     "@jest/globals": "27.5.1",
