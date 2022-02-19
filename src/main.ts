@@ -1,13 +1,15 @@
 import { debug, getInput, info, setFailed } from "@actions/core"
-import {
+import type {
   ChromeOptions,
-  deployChrome,
-  deployEdge,
-  deployFirefox,
-  deployOpera,
   EdgeOptions,
   FirefoxOptions,
   OperaOptions
+} from "@plasmo-corp/web-ext-deploy"
+import {
+  deployChrome,
+  deployEdge,
+  deployFirefox,
+  deployOpera
 } from "@plasmo-corp/web-ext-deploy"
 
 enum BrowserName {
@@ -69,7 +71,7 @@ async function run(): Promise<void> {
         case BrowserName.Edge:
           return deployEdge(key as Keys[BrowserName.Edge])
         default:
-          throw new Error(`Unknown browser ${browser}`)
+          throw new Error(`Unknown store: ${browser}`)
       }
     })
 
