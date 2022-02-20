@@ -38,12 +38,14 @@ async function run(): Promise<void> {
     ) as BrowserName[]
 
     if (browserEntries.length === 0) {
-      warning("No supported browser found")
+      setFailed("No supported browser found")
       return
     }
 
+    let hasAtLeastOneZip = false
     // Enrich keys with zip artifact if needed
     browserEntries.forEach((browser: BrowserName) => {
+      hasAtLeastOneZip = hasAtLeastOneZip || keys[browser].zip || artifact
       if (!keys[browser].zip) {
         info(`No zip for ${browser} provided`)
         if (!artifact) {
@@ -54,6 +56,10 @@ async function run(): Promise<void> {
         keys[browser].zip = artifact
       }
     })
+
+    if (!hasAtLeastOneZip) {
+      setFailed("Could not find zip for any browsers")
+    }
 
     const deployPromises = browserEntries.map((browser) => {
       if (!keys[browser].zip) return false
