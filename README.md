@@ -4,7 +4,7 @@
 
 # Browser Plugin Publisher
 
-Use this action to publish your browser plugin to any browser plugin marketplace.
+Use this action to publish your browser plugin to every browser plugin marketplace.
 
 ## Usage
 
@@ -45,3 +45,4 @@ This works if you're only targeting chrome and edge for example.
 
 - [web-ext-deploy](https://github.com/avi12/web-ext-deploy) by [avi12](https://github.com/avi12)
 - [chrome-webstore-upload-cli](https://github.com/fregante/chrome-webstore-upload-cli) by [fregante](https://github.com/fregante)
+- [web-ext](https://github.com/mozilla/web-ext) by [mozilla](https://github.com/mozilla)

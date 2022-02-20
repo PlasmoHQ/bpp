@@ -53,31 +53,25 @@
     "Firefox": {
       "type": "object",
       "additionalProperties": false,
+      "description": "For API Key and https://addons.mozilla.org/en-US/developers/addon/api/key/",
       "properties": {
+        "apiKey": {
+          "type": "string",
+          "description": "The JWT issuer, from https://addons.mozilla.org/en-US/developers/addon/api/key/"
+        },
+        "apiSecret": {
+          "type": "string",
+          "description": "The JWT secret, from https://addons.mozilla.org/en-US/developers/addon/api/key/"
+        },
         "extId": {
           "type": "string",
-          "description": "Get it from https://addons.mozilla.org/addon/EXT_ID"
-        },
-        "sessionid": {
-          "type": "string",
-          "description": "npx web-ext-deploy --get-cookies=firefox"
+          "description": "Get it from https://addons.mozilla.org/addon/EXT_ID. If it is embedded in your manifest under gecko.id, omit this property."
         },
         "zip": {
           "type": "string"
-        },
-        "zipSource": {
-          "type": "string"
-        },
-        "changelog": {
-          "type": "string",
-          "description": "Provide changelog for the Firefox users"
-        },
-        "devChangelog": {
-          "type": "string",
-          "description": "Provide changelog for the Firefox Add-ons reviewers"
         }
       },
-      "required": ["extId", "sessionid"]
+      "required": ["apiKey", "apiSecret"]
     },
     "Edge": {
       "type": "object",

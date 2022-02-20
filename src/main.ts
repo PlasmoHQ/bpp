@@ -1,4 +1,4 @@
-import { debug, getInput, info, setFailed } from "@actions/core"
+import { debug, getInput, info, setFailed, warning } from "@actions/core"
 import type {
   ChromeOptions,
   EdgeOptions,
@@ -45,38 +45,55 @@ async function run(): Promise<void> {
       return
     }
 
-    const deployPromises = Object.entries(keys).map(([browser, key]) => {
-      if (!supportedBrowserSet.has(browser as BrowserName)) {
-        return
-      }
+    const browserEntries = Object.keys(keys).filter((browser) =>
+      supportedBrowserSet.has(browser as BrowserName)
+    ) as BrowserName[]
 
-      if (!key.zip) {
-        debug(`No zip for ${browser} provided`)
+    if (browserEntries.length === 0) {
+      warning("No supported browser found")
+      return
+    }
+
+    // Enrich keys with zip artifact if needed
+    browserEntries.forEach((browser: BrowserName) => {
+      if (!keys[browser].zip) {
+        info(`No zip for ${browser} provided`)
         if (!artifact) {
-          debug("No artifact provided")
-          throw new Error(`No artifact available to submit for ${browser}`)
+          warning(
+            `🤖 No artifact available to submit for ${browser}, skipping...`
+          )
         }
-        key.zip = artifact
+        keys[browser].zip = artifact
       }
+    })
 
+    const deployPromises = browserEntries.map((browser) => {
+      if (!keys[browser].zip) return false
       info(`Queueing ${browser} submission`)
 
       switch (browser) {
         case BrowserName.Chrome:
-          return deployChrome(key as Keys[BrowserName.Chrome])
+          return deployChrome(keys[browser])
         case BrowserName.Firefox:
-          return deployFirefox(key as Keys[BrowserName.Firefox])
+          return deployFirefox(keys[browser])
         case BrowserName.Opera:
-          return deployOpera(key as Keys[BrowserName.Opera])
+          return deployOpera(keys[browser])
         case BrowserName.Edge:
-          return deployEdge(key as Keys[BrowserName.Edge])
-        default:
-          throw new Error(`Unknown store: ${browser}`)
+          return deployEdge(keys[browser])
       }
     })
 
-    await Promise.all(deployPromises)
-    info("All submissions complete")
+    const results = await Promise.allSettled(deployPromises)
+
+    results.forEach((result, index) => {
+      if (result.status === "rejected") {
+        warning(result.reason)
+      } else if (result.value) {
+        info(`🚀 ${browserEntries[index]} submission successful`)
+      }
+    })
+
+    info("🎉 Completed")
   } catch (error) {
     if (error instanceof Error) setFailed(error.message)
   }
