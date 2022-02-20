@@ -24,7 +24,22 @@ Copy the content of your `keys.json` into a github secret with the name `BPP_KEY
 
 ```yaml
 steps:
-  - uses: plasmo-corp/bpp@v1
+  - name: Browser Plugin Publish
+    uses: plasmo-corp/bpp@v1
+    with:
+      keys: ${{ secrets.BPP_KEYS }}
+```
+
+**NOTE**: If you're publishing to Opera or Edge, you will need to setup chromium for puppeteer before running `bpp`. In v2, we will either deprecate puppeteer approach altogether (since it's quite a leaky abstraction), or have an option for bpp to download and setup the browser for you.
+
+```yaml
+steps:
+  - name: Setup Chrome
+    uses: browser-actions/setup-chrome@latest
+    with:
+      chrome-version: stable
+  - name: Browser Plugin Publish
+    uses: plasmo-corp/bpp@v1
     with:
       keys: ${{ secrets.BPP_KEYS }}
 ```
@@ -33,7 +48,12 @@ steps:
 
 ```yaml
 steps:
-  - uses: plasmo-corp/bpp@v1
+  - name: Setup Chrome
+    uses: browser-actions/setup-chrome@latest
+    with:
+      chrome-version: stable
+  - name: Browser Plugin Publish
+    uses: plasmo-corp/bpp@v1
     with:
       artifact: build/artifact.zip
       keys: ${{ secrets.BPP_KEYS }}

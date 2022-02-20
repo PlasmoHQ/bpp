@@ -4,20 +4,15 @@ import type {
   EdgeOptions,
   FirefoxOptions,
   OperaOptions
-} from "@plasmo-corp/web-ext-deploy"
+} from "@plasmo-corp/bms"
 import {
+  BrowserName,
   deployChrome,
   deployEdge,
   deployFirefox,
-  deployOpera
-} from "@plasmo-corp/web-ext-deploy"
-
-enum BrowserName {
-  Chrome = "chrome",
-  Firefox = "firefox",
-  Opera = "opera",
-  Edge = "edge"
-}
+  deployOpera,
+  supportedBrowserSet
+} from "@plasmo-corp/bms"
 
 type Keys = {
   [BrowserName.Chrome]: ChromeOptions
@@ -25,13 +20,6 @@ type Keys = {
   [BrowserName.Opera]: OperaOptions
   [BrowserName.Edge]: EdgeOptions
 }
-
-const supportedBrowserSet = new Set([
-  BrowserName.Chrome,
-  BrowserName.Firefox,
-  BrowserName.Opera,
-  BrowserName.Edge
-])
 
 async function run(): Promise<void> {
   try {
