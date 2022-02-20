@@ -12,11 +12,11 @@ First, create a `keys.json` in your favorite text editor (preferably one with [j
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/main/keys.schema.json"
+  "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v1/keys.schema.json"
 }
 ```
 
-A sample template is provided in [`key.template.json`](./keys.template.json), and the JSON schema is in [`keys.schema.json`](./keys.schema.json). If your editor supports [json-schema](https://json-schema.org/), it should give you intellisense/autocompletion while working on the keys.
+A sample template is provided in [`keys.template.json`](./keys.template.json), and the JSON schema is in [`keys.schema.json`](./keys.schema.json). If your editor supports [json-schema](https://json-schema.org/), it should give you intellisense/autocompletion while working on the keys.
 
 **NOTE**: You should only specify the browser you wish to publish to. If there are any invalid configuration, the action will fail! I.e, no empty key allowed such as `"chrome": {}`.
 
