@@ -38,8 +38,13 @@ async function run(): Promise<void> {
     ) as BrowserName[]
 
     if (browserEntries.length === 0) {
-      warning("No supported browser found")
-      return
+      throw new Error("No supported browser found")
+    }
+
+    const hasAtLeastOneZip =
+      browserEntries.some((b) => !!keys[b].zip) || !!artifact
+    if (!hasAtLeastOneZip) {
+      throw new Error("No artifact found for deployment")
     }
 
     // Enrich keys with zip artifact if needed
@@ -47,9 +52,7 @@ async function run(): Promise<void> {
       if (!keys[browser].zip) {
         info(`No zip for ${browser} provided`)
         if (!artifact) {
-          warning(
-            `🤖 No artifact available to submit for ${browser}, skipping...`
-          )
+          warning(`🤖 SKIP: No artifact available to submit for ${browser}`)
         }
         keys[browser].zip = artifact
       }
@@ -57,7 +60,7 @@ async function run(): Promise<void> {
 
     const deployPromises = browserEntries.map((browser) => {
       if (!keys[browser].zip) return false
-      info(`Queueing ${browser} submission`)
+      info(`📦 QUEUE: Prepare for ${browser} submission`)
 
       switch (browser) {
         case BrowserName.Chrome:
@@ -77,13 +80,11 @@ async function run(): Promise<void> {
       if (result.status === "rejected") {
         warning(result.reason)
       } else if (result.value) {
-        info(`🚀 ${browserEntries[index]} submission successful`)
+        info(`🚀 DONE: ${browserEntries[index]} submission successful`)
       }
     })
-
-    info("🎉 Completed")
   } catch (error) {
-    if (error instanceof Error) setFailed(error.message)
+    if (error instanceof Error) setFailed(`🛑 HALT: ${error.message}`)
   }
 }
 
