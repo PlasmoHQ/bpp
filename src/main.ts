@@ -45,7 +45,7 @@ async function run(): Promise<void> {
     let hasAtLeastOneZip = false
     // Enrich keys with zip artifact if needed
     browserEntries.forEach((browser: BrowserName) => {
-      hasAtLeastOneZip = hasAtLeastOneZip || keys[browser].zip || artifact
+      hasAtLeastOneZip = hasAtLeastOneZip || !!keys[browser].zip || !!artifact
       if (!keys[browser].zip) {
         info(`No zip for ${browser} provided`)
         if (!artifact) {
