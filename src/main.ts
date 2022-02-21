@@ -1,23 +1,18 @@
-import { debug, getInput, info, setFailed } from "@actions/core"
+import { debug, getInput, info, setFailed, warning } from "@actions/core"
 import type {
   ChromeOptions,
   EdgeOptions,
   FirefoxOptions,
   OperaOptions
-} from "@plasmo-corp/web-ext-deploy"
+} from "@plasmo-corp/bms"
 import {
+  BrowserName,
   deployChrome,
   deployEdge,
   deployFirefox,
-  deployOpera
-} from "@plasmo-corp/web-ext-deploy"
-
-enum BrowserName {
-  Chrome = "chrome",
-  Firefox = "firefox",
-  Opera = "opera",
-  Edge = "edge"
-}
+  deployOpera,
+  supportedBrowserSet
+} from "@plasmo-corp/bms"
 
 type Keys = {
   [BrowserName.Chrome]: ChromeOptions
@@ -25,13 +20,6 @@ type Keys = {
   [BrowserName.Opera]: OperaOptions
   [BrowserName.Edge]: EdgeOptions
 }
-
-const supportedBrowserSet = new Set([
-  BrowserName.Chrome,
-  BrowserName.Firefox,
-  BrowserName.Opera,
-  BrowserName.Edge
-])
 
 async function run(): Promise<void> {
   try {
@@ -45,40 +33,58 @@ async function run(): Promise<void> {
       return
     }
 
-    const deployPromises = Object.entries(keys).map(([browser, key]) => {
-      if (!supportedBrowserSet.has(browser as BrowserName)) {
-        return
-      }
+    const browserEntries = Object.keys(keys).filter((browser) =>
+      supportedBrowserSet.has(browser as BrowserName)
+    ) as BrowserName[]
 
-      if (!key.zip) {
-        debug(`No zip for ${browser} provided`)
+    if (browserEntries.length === 0) {
+      throw new Error("No supported browser found")
+    }
+
+    const hasAtLeastOneZip =
+      browserEntries.some((b) => !!keys[b].zip) || !!artifact
+    if (!hasAtLeastOneZip) {
+      throw new Error("No artifact found for deployment")
+    }
+
+    // Enrich keys with zip artifact if needed
+    browserEntries.forEach((browser: BrowserName) => {
+      if (!keys[browser].zip) {
+        info(`No zip for ${browser} provided`)
         if (!artifact) {
-          debug("No artifact provided")
-          throw new Error(`No artifact available to submit for ${browser}`)
+          warning(`🤖 SKIP: No artifact available to submit for ${browser}`)
         }
-        key.zip = artifact
-      }
-
-      info(`Queueing ${browser} submission`)
-
-      switch (browser) {
-        case BrowserName.Chrome:
-          return deployChrome(key as Keys[BrowserName.Chrome])
-        case BrowserName.Firefox:
-          return deployFirefox(key as Keys[BrowserName.Firefox])
-        case BrowserName.Opera:
-          return deployOpera(key as Keys[BrowserName.Opera])
-        case BrowserName.Edge:
-          return deployEdge(key as Keys[BrowserName.Edge])
-        default:
-          throw new Error(`Unknown store: ${browser}`)
+        keys[browser].zip = artifact
       }
     })
 
-    await Promise.all(deployPromises)
-    info("All submissions complete")
+    const deployPromises = browserEntries.map((browser) => {
+      if (!keys[browser].zip) return false
+      info(`📦 QUEUE: Prepare for ${browser} submission`)
+
+      switch (browser) {
+        case BrowserName.Chrome:
+          return deployChrome(keys[browser])
+        case BrowserName.Firefox:
+          return deployFirefox(keys[browser])
+        case BrowserName.Opera:
+          return deployOpera(keys[browser])
+        case BrowserName.Edge:
+          return deployEdge(keys[browser])
+      }
+    })
+
+    const results = await Promise.allSettled(deployPromises)
+
+    results.forEach((result, index) => {
+      if (result.status === "rejected") {
+        warning(result.reason)
+      } else if (result.value) {
+        info(`🚀 DONE: ${browserEntries[index]} submission successful`)
+      }
+    })
   } catch (error) {
-    if (error instanceof Error) setFailed(error.message)
+    if (error instanceof Error) setFailed(`🛑 HALT: ${error.message}`)
   }
 }
 
