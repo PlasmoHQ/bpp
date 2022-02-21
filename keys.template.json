@@ -1,6 +1,5 @@
 {
-  "#note": "Replace $schema with https://raw.githubusercontent.com/plasmo-corp/bpp/main/keys.schema.json",
-  "$schema": "./keys.schema.json",
+  "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v1/keys.schema.json",
   "chrome": {
     "clientId": "123",
     "refreshToken": "789",
@@ -8,7 +7,8 @@
   },
   "firefox": {
     "extId": "123",
-    "sessionid": "abcd"
+    "apiKey": "abcd",
+    "apiSecret": "efgh"
   },
   "edge": {
     "extId": "123",

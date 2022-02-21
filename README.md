@@ -40,6 +40,8 @@ steps:
       chrome-version: stable
   - name: Browser Plugin Publish
     uses: plasmo-corp/bpp@v1
+    env:
+      PUPPETEER_EXECUTABLE_PATH: /opt/hostedtoolcache/chromium/latest/x64/chrome
     with:
       keys: ${{ secrets.BPP_KEYS }}
 ```
@@ -54,6 +56,8 @@ steps:
       chrome-version: stable
   - name: Browser Plugin Publish
     uses: plasmo-corp/bpp@v1
+    env:
+      PUPPETEER_EXECUTABLE_PATH: /opt/hostedtoolcache/chromium/latest/x64/chrome
     with:
       artifact: build/artifact.zip
       keys: ${{ secrets.BPP_KEYS }}
