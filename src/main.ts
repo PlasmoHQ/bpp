@@ -42,7 +42,8 @@ async function run(): Promise<void> {
     }
 
     const hasAtLeastOneZip =
-      browserEntries.some((b) => !!keys[b].zip) || !!artifact
+      !!artifact || browserEntries.some((b) => !!keys[b].zip)
+
     if (!hasAtLeastOneZip) {
       throw new Error("No artifact found for deployment")
     }
