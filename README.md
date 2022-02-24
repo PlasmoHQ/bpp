@@ -37,7 +37,7 @@ steps:
   - name: Setup Chrome
     uses: browser-actions/setup-chrome@latest
     with:
-      chrome-version: stable
+      chrome-version: latest
   - name: Browser Plugin Publish
     uses: plasmo-corp/bpp@v1
     env:
@@ -53,7 +53,7 @@ steps:
   - name: Setup Chrome
     uses: browser-actions/setup-chrome@latest
     with:
-      chrome-version: stable
+      chrome-version: latest
   - name: Browser Plugin Publish
     uses: plasmo-corp/bpp@v1
     env:
