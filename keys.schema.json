@@ -53,7 +53,7 @@
     "Firefox": {
       "type": "object",
       "additionalProperties": false,
-      "description": "For API Key and https://addons.mozilla.org/en-US/developers/addon/api/key/",
+      "description": "For API Key and API Secret, visit: https://addons.mozilla.org/en-US/developers/addon/api/key/",
       "properties": {
         "apiKey": {
           "type": "string",
