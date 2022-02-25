@@ -4,7 +4,13 @@
 
 # Browser Plugin Publisher
 
-Use this action to publish your browser plugin to every browser plugin marketplace.
+Use this action to publish your browser plugin to every browser plugin marketplace. This action and its dependencies are fully open source under the MIT license. The core modules are:
+
+- [Browser Market Submit](https://github.com/plasmo-corp/bms)
+- [Mozilla Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/mwu)
+- [Chrome Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/cwu)
+
+The action is updated regularly and is field-tested in [cex](https://github.com/plasmo-corp/cex/actions)
 
 ## Usage
 
