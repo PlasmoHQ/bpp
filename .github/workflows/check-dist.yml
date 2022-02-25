@@ -41,7 +41,6 @@ jobs:
 
       - name: Rebuild the dist/ directory
         run: |
-          pnpm run build
           pnpm run package
 
       - name: Compare the expected and actual dist/ directories
