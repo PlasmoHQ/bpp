@@ -28,11 +28,6 @@ async function run(): Promise<void> {
     // Path to the zip file to be deployed
     const artifact = getInput("artifact")
 
-    if (process.env.NODE_ENV === "test") {
-      debug(Object.keys(keys).join(","))
-      return
-    }
-
     const browserEntries = Object.keys(keys).filter((browser) =>
       supportedBrowserSet.has(browser as BrowserName)
     ) as BrowserName[]
@@ -58,6 +53,11 @@ async function run(): Promise<void> {
         keys[browser].zip = artifact
       }
     })
+
+    if (process.env.NODE_ENV === "test") {
+      debug(Object.keys(keys).join(","))
+      return
+    }
 
     const deployPromises = browserEntries.map((browser) => {
       if (!keys[browser].zip) return false
