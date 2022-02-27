@@ -30,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "1.6.0",
-    "@plasmo-corp/bms": "1.0.0"
+    "@plasmo-corp/bms": "1.2.0"
   },
   "devDependencies": {
     "@plasmo-corp/rps": "1.1.0",
