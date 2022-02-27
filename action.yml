@@ -11,6 +11,9 @@ inputs:
   artifact:
     required: false
     description: "The plugin zip artifact to be published."
+  version-file:
+    required: false
+    description: "The path to a json file with a version field, default to package.json."
 runs:
   using: "node16"
   main: "dist/index.js"

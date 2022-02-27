@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`happy path 1`] = `
-"No zip for chrome provided
-No zip for firefox provided
-No zip for edge provided
-No zip for opera provided
-::debug::$schema,chrome,firefox,edge,opera
+"::debug::$schema,chrome,firefox,edge,opera
 "
 `;

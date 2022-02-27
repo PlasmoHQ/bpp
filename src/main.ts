@@ -27,6 +27,7 @@ async function run(): Promise<void> {
     const keys: Keys = JSON.parse(getInput("keys", { required: true }))
     // Path to the zip file to be deployed
     const artifact = getInput("artifact")
+    const versionFile = getInput("version-file")
 
     const browserEntries = Object.keys(keys).filter((browser) =>
       supportedBrowserSet.has(browser as BrowserName)
@@ -46,11 +47,14 @@ async function run(): Promise<void> {
     // Enrich keys with zip artifact if needed
     browserEntries.forEach((browser: BrowserName) => {
       if (!keys[browser].zip) {
-        info(`No zip for ${browser} provided`)
         if (!artifact) {
           warning(`🤖 SKIP: No artifact available to submit for ${browser}`)
+        } else {
+          keys[browser].zip = artifact
         }
-        keys[browser].zip = artifact
+      }
+      if (!keys[browser].versionFile) {
+        keys[browser].versionFile = versionFile
       }
     })
 
