@@ -65,7 +65,7 @@
         },
         "extId": {
           "type": "string",
-          "description": "Get it from https://addons.mozilla.org/addon/EXT_ID. If it is embedded in your manifest under gecko.id, omit this property."
+          "description": "This is the extension UUID, get it from https://addons.mozilla.org/addon/{ext-name}/edit, under Technical Details. If it is embedded in your manifest under gecko.id, omit this property."
         },
         "zip": {
           "type": "string"

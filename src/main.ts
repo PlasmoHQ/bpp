@@ -26,8 +26,15 @@ async function run(): Promise<void> {
     // All the keys necessary to deploy the extension
     const keys: Keys = JSON.parse(getInput("keys", { required: true }))
     // Path to the zip file to be deployed
-    const artifact = getInput("artifact")
+    const artifact = getInput("zip") || getInput("artifact")
     const versionFile = getInput("version-file")
+
+    const verbose = !!getInput("verbose")
+
+    if (verbose) {
+      // All internal logging goes to info
+      console.log = info
+    }
 
     const browserEntries = Object.keys(keys).filter((browser) =>
       supportedBrowserSet.has(browser as BrowserName)
@@ -56,10 +63,13 @@ async function run(): Promise<void> {
       if (!keys[browser].versionFile) {
         keys[browser].versionFile = versionFile
       }
+
+      keys[browser].verbose = verbose
     })
 
     if (process.env.NODE_ENV === "test") {
-      debug(Object.keys(keys).join(","))
+      debug(JSON.stringify({ artifact, versionFile, verbose }))
+      debug(browserEntries.join(","))
       return
     }
 
@@ -83,7 +93,7 @@ async function run(): Promise<void> {
 
     results.forEach((result, index) => {
       if (result.status === "rejected") {
-        warning(result.reason)
+        setFailed(`🛑 FAIL: ${result.reason}`)
       } else if (result.value) {
         info(`🚀 DONE: ${browserEntries[index]} submission successful`)
       }

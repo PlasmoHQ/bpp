@@ -11,6 +11,12 @@ inputs:
   artifact:
     required: false
     description: "The plugin zip artifact to be published."
+  zip:
+    required: false
+    description: "This is an alias to artifact argument."
+  verbose:
+    required: false
+    description: "Print out more verbose logging."
   version-file:
     required: false
     description: "The path to a json file with a version field, default to package.json."

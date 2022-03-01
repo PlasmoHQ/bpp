@@ -18,8 +18,16 @@ test("happy path", async () => {
   }
 
   const output = execFileSync(execPath, [ip], options).toString("utf-8")
-
   expect(output).toMatchSnapshot()
+
+  // try {
+  //   const output = execFileSync(execPath, [ip], options).toString("utf-8")
+  //   expect(output).toMatchSnapshot()
+  // } catch (error: any) {
+  //   console.log(typeof error)
+
+  //   console.log(error["stdout"].toString("utf-8"))
+  // }
 })
 
 test("will fail if no zip found", async () => {
@@ -33,4 +41,17 @@ test("will fail if no zip found", async () => {
   const tExec = () => execFileSync(execPath, [ip], options)
 
   expect(tExec).toThrowError()
+})
+
+test("get verbose flag successfully", async () => {
+  env["INPUT_KEYS"] = `{"chrome": {}}`
+  env["INPUT_ZIP"] = "artifacts.zip"
+  env["INPUT_VERBOSE"] = "true"
+
+  const options: ExecFileSyncOptions = {
+    env
+  }
+
+  const output = execFileSync(execPath, [ip], options).toString("utf-8")
+  expect(output).toMatchSnapshot()
 })
