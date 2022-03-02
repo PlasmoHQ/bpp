@@ -4,7 +4,7 @@ import { readFile } from "fs/promises"
 import { join } from "path"
 import { cwd, env, execPath } from "process"
 
-const ip = join(cwd(), "dist", "index.js")
+const indexScript = join(cwd(), "dist", "index.js")
 
 test("happy path", async () => {
   const templateKeysPath = join(cwd(), "keys.template.json")
@@ -17,7 +17,9 @@ test("happy path", async () => {
     env
   }
 
-  const output = execFileSync(execPath, [ip], options).toString("utf-8")
+  const output = execFileSync(execPath, [indexScript], options).toString(
+    "utf-8"
+  )
   expect(output).toMatchSnapshot()
 
   // try {
@@ -38,7 +40,7 @@ test("will fail if no zip found", async () => {
     env
   }
 
-  const tExec = () => execFileSync(execPath, [ip], options)
+  const tExec = () => execFileSync(execPath, [indexScript], options)
 
   expect(tExec).toThrowError()
 })
@@ -52,6 +54,8 @@ test("get verbose flag successfully", async () => {
     env
   }
 
-  const output = execFileSync(execPath, [ip], options).toString("utf-8")
+  const output = execFileSync(execPath, [indexScript], options).toString(
+    "utf-8"
+  )
   expect(output).toMatchSnapshot()
 })

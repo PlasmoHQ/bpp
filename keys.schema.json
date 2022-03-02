@@ -52,7 +52,6 @@
     },
     "Firefox": {
       "type": "object",
-      "additionalProperties": false,
       "description": "For API Key and API Secret, visit: https://addons.mozilla.org/en-US/developers/addon/api/key/",
       "properties": {
         "apiKey": {
@@ -75,7 +74,6 @@
     },
     "Edge": {
       "type": "object",
-      "additionalProperties": false,
       "properties": {
         "extId": {
           "type": "string",
@@ -96,13 +94,11 @@
       "required": ["extId", "cookie"]
     },
     "Opera": {
-      "title": "Opera",
       "type": "object",
-      "additionalProperties": false,
       "description": "NOTE: Opera add-ons reviewer require inspecting your extension's source code.",
       "properties": {
         "packageId": {
-          "type": "integer",
+          "type": "string",
           "description": "Get it from https://addons.opera.com/developer/package/PACKAGE_ID"
         },
         "sessionid": {
