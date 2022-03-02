@@ -1,6 +1,6 @@
 {
   "name": "@plasmo/bpp",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "private": true,
   "description": "Browser Plugin Publisher",
   "main": "lib/main.js",
