@@ -1,6 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`happy path 1`] = `
-"::debug::$schema,chrome,firefox,edge,opera
-"
-`;

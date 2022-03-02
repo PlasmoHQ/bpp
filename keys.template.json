@@ -6,12 +6,12 @@
     "extId": "abcd"
   },
   "firefox": {
-    "extId": "123",
+    "extId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
     "apiKey": "abcd",
     "apiSecret": "efgh"
   },
   "edge": {
-    "extId": "123",
+    "extId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
     "cookie": "abcd"
   },
   "opera": {

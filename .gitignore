@@ -95,5 +95,5 @@ typings/
 Thumbs.db
 
 # Ignore built ts files
-__tests__/runner/*
+tests/runner/*
 lib/**/*
