@@ -75,23 +75,31 @@
     "Edge": {
       "type": "object",
       "properties": {
-        "extId": {
+        "productId": {
           "type": "string",
-          "description": "Get it from https://partner.microsoft.com/en-us/dashboard/microsoftedge/EXT_ID"
+          "description": "Create an edge add-on and get it from the dashboard: https://partner.microsoft.com/en-us/dashboard/microsoftedge/{product-id}/package/dashboard"
         },
-        "cookie": {
+        "clientId": {
           "type": "string",
-          "description": "npx web-ext-deploy --get-cookies=edge"
+          "description": "To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
+        },
+        "clientSecret": {
+          "type": "string",
+          "description": "To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
+        },
+        "accessTokenUrl": {
+          "type": "string",
+          "description": "To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
         },
         "zip": {
           "type": "string"
         },
-        "devChangelog": {
+        "notes": {
           "type": "string",
-          "description": "Provide changelog for the Edge Add-ons reviewers"
+          "description": "Provide notes for certification to the Edge Add-ons reviewers"
         }
       },
-      "required": ["extId", "cookie"]
+      "required": ["productId", "clientId", "clientSecret", "accessTokenUrl"]
     },
     "Opera": {
       "type": "object",

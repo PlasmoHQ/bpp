@@ -22,4 +22,4 @@ inputs:
     description: "The path to a json file with a version field, default to package.json."
 runs:
   using: "node16"
-  main: "dist/index.js"
+  main: "index.js"

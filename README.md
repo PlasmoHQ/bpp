@@ -9,12 +9,13 @@ Use this action to publish your browser plugin to every browser plugin marketpla
 - [Browser Market Submit](https://github.com/plasmo-corp/bms)
 - [Mozilla Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/mwu)
 - [Chrome Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/cwu)
+- [Edge Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/ewu)
 
 The action is updated regularly and is field-tested in [cex](https://github.com/plasmo-corp/cex/actions)
 
 ## Usage
 
-First, create a `keys.json` in your favorite text editor (preferably one with [json-schema](https://json-schema.org/) support):
+First, create a `keys.json` in your favorite text editor (preferably one that supports [json-schema](https://json-schema.org/)):
 
 ```json
 {
@@ -26,17 +27,17 @@ A sample template is provided in [`keys.template.json`](./keys.template.json), a
 
 **NOTE**: You should only specify the browser you wish to publish to. If there are any invalid configuration, the action will fail! I.e, no empty key allowed such as `"chrome": {}`.
 
-Copy the content of your `keys.json` into a github secret with the name `BPP_KEYS`. Then, the action can be used as follows:
+Copy the content of your `keys.json` into a github secret with a name of your choosing, in this case we used `BPP_KEYS`. Then, the action can be used as follows:
 
 ```yaml
 steps:
   - name: Browser Plugin Publish
-    uses: plasmo-corp/bpp@v1
+    uses: plasmo-corp/bpp@v2
     with:
       keys: ${{ secrets.BPP_KEYS }}
 ```
 
-**NOTE**: If you're publishing to Opera or Edge, you will need to setup chromium for puppeteer before running `bpp`. In v2, we will either deprecate puppeteer approach altogether (since it's quite a leaky abstraction), or have an option for bpp to download and setup the browser for you.
+**NOTE**: If you're publishing to the Opera store, you will need to setup chromium for puppeteer before running `bpp`. In v3, we will hopefully deprecate puppeteer approach altogether (since it's quite a leaky abstraction), or have an option for bpp to download and setup the browser for you.
 
 ```yaml
 steps:
@@ -45,7 +46,7 @@ steps:
     with:
       chrome-version: latest
   - name: Browser Plugin Publish
-    uses: plasmo-corp/bpp@v1
+    uses: plasmo-corp/bpp@v2
     env:
       PUPPETEER_EXECUTABLE_PATH: /opt/hostedtoolcache/chromium/latest/x64/chrome
     with:
@@ -56,20 +57,14 @@ steps:
 
 ```yaml
 steps:
-  - name: Setup Chrome
-    uses: browser-actions/setup-chrome@latest
-    with:
-      chrome-version: latest
   - name: Browser Plugin Publish
-    uses: plasmo-corp/bpp@v1
-    env:
-      PUPPETEER_EXECUTABLE_PATH: /opt/hostedtoolcache/chromium/latest/x64/chrome
+    uses: plasmo-corp/bpp@v2
     with:
       artifact: build/artifact.zip
       keys: ${{ secrets.BPP_KEYS }}
 ```
 
-This works if you're only targeting chrome and edge for example.
+This works if you're targeting a group of browsers that share similar format, such as chrome and edge.
 
 ## Acknowledgements
 
@@ -79,4 +74,4 @@ This works if you're only targeting chrome and edge for example.
 
 # License
 
-[MIT](./license) 🚀 [Plasmo Corp.](https://plasmo.com)
+[MIT](./license) ⭐ [Plasmo Corp.](https://plasmo.com)
