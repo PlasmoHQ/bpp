@@ -19,7 +19,7 @@ First, create a `keys.json` in your favorite text editor (preferably one that su
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v1/keys.schema.json"
+  "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v2/keys.schema.json"
 }
 ```
 
