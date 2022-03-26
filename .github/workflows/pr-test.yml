@@ -1,10 +1,9 @@
-name: "build-test"
-on: # rebuild any PRs and main branch changes
+name: PR testing
+# rebuild any PRs and main branch changes
+on:
   pull_request:
-  push:
     branches:
       - main
-      - "releases/*"
 
 jobs:
   build: # make sure build/ci work properly
@@ -12,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Cache pnpm modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -20,22 +19,11 @@ jobs:
             ${{ runner.os }}-
       - uses: pnpm/action-setup@v2.2.1
         with:
-          version: 6.32.1
+          version: 6.32.2
           run_install: true
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3.0.0
         with:
           node-version: 16.x
           cache: "pnpm"
-      - run: |
-          pnpm run all
-  test: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./
-        env:
-          NODE_ENV: "test"
-        with:
-          artifact: build/artifact.zip
-          keys: ${{ secrets.BPP_KEYS }}
+      - run: pnpm run all

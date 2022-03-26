@@ -1,0 +1,53 @@
+# Deploy staging to the major version branch
+name: Major version rolling deployment
+
+# Bump this version accordingly as the action matures
+env:
+  VERSION: v2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: staging
+      - name: Configure git information
+        run: |
+          git config --global user.name 'Plasmo G.A.T Deployer'
+          git config --global user.email 'support@plasmo.com'
+
+      - run: git checkout -b ${{ env.VERSION }}
+      - name: Deploy ${{ env.VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git push -fu origin ${{ env.VERSION }}
+
+  check-deployment:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ env.VERSION }}
+
+      - name: Compare the expected and actual deployed directories
+        run: |
+          if [ "$(git diff staging --ignore-space-at-eol ./ | wc -l)" -gt "0" ]; then
+            echo "Detected uncommitted changes after build.  See status below:"
+            git diff
+            exit 1
+          fi
+        id: diff
+
+      # If index.js was different than expected, upload the expected version as an artifact
+      - uses: actions/upload-artifact@v3
+        if: ${{ failure() && steps.diff.conclusion == 'failure' }}
+        with:
+          name: dist
+          path: ./

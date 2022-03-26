@@ -1,3 +1,6 @@
+/**
+ * @type {import('@jest/types').Config.InitialOptions}
+ */
 export default {
   clearMocks: true,
   moduleFileExtensions: ["js", "ts"],
