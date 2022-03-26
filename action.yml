@@ -1,0 +1,25 @@
+name: "Browser Plugin Publisher"
+description: "Publish your browser plugin anywhere using a single action."
+author: "Plasmo Corp."
+branding:
+  icon: upload-cloud
+  color: purple
+inputs:
+  keys:
+    required: true
+    description: "A JSON string containing the keys to be used for the submission process."
+  artifact:
+    required: false
+    description: "The plugin zip artifact to be published."
+  zip:
+    required: false
+    description: "This is an alias to artifact argument."
+  verbose:
+    required: false
+    description: "Print out more verbose logging."
+  version-file:
+    required: false
+    description: "The path to a json file with a version field, default to package.json."
+runs:
+  using: "node16"
+  main: "index.js"
