@@ -37,7 +37,7 @@ steps:
       keys: ${{ secrets.BPP_KEYS }}
 ```
 
-**NOTE**: If you're publishing to the Opera store, you will need to setup chromium for puppeteer before running `bpp`. In v3, we will hopefully deprecate puppeteer approach altogether (since it's quite a leaky abstraction), or have an option for bpp to download and setup the browser for you.
+**NOTE**: If you're publishing to the Opera store, you will need to set up Chromium for puppeteer before running `bpp`. In v3, we will hopefully deprecate the Puppeteer approach altogether (since it's quite a leaky abstraction), or have an option for BPP to download and set up the browser for you.
 
 ```yaml
 steps:
@@ -64,7 +64,7 @@ steps:
       keys: ${{ secrets.BPP_KEYS }}
 ```
 
-This works if you're targeting a group of browsers that share similar format, such as chrome and edge.
+This works if you're targeting a group of browsers that share a similar format, such as Chrome or Edge.
 
 ## Acknowledgements
 

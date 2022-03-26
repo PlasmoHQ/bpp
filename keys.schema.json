@@ -77,19 +77,19 @@
       "properties": {
         "productId": {
           "type": "string",
-          "description": "Create an edge add-on and get it from the dashboard: https://partner.microsoft.com/en-us/dashboard/microsoftedge/{product-id}/package/dashboard"
+          "description": "Create an Edge add-on and get it from the dashboard: https://partner.microsoft.com/en-us/dashboard/microsoftedge/{product-id}/package/dashboard"
         },
         "clientId": {
           "type": "string",
-          "description": "To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
+          "description": "You can find your client ID by visiting the Microsoft Partner Center:  https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
         },
         "clientSecret": {
           "type": "string",
-          "description": "To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
+          "description": "You can find your client secret by visiting the Microsoft Partner Center:  https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
         },
         "accessTokenUrl": {
           "type": "string",
-          "description": "To get one: https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
+          "description": "You can find your access token URL by visiting the Microsoft Partner Center:  https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
         },
         "zip": {
           "type": "string"
