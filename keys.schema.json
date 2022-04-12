@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://plasmo.com/bpp/keys.schema.json",
-  "title": "Browser Plugin Publisher keys",
-  "description": "Keys for the Browser Plugin Publisher.",
+  "title": "Browser Platform Publisher keys",
+  "description": "Keys for the Browser Platform Publisher.",
   "$ref": "#/definitions/Root",
   "definitions": {
     "Root": {

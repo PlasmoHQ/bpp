@@ -1,5 +1,5 @@
-name: "Browser Plugin Publisher"
-description: "Publish your browser plugin anywhere using a single action."
+name: "Browser Platform Publisher"
+description: "Publish your browser extension anywhere using a single action."
 author: "Plasmo Corp."
 branding:
   icon: upload-cloud
@@ -10,7 +10,7 @@ inputs:
     description: "A JSON string containing the keys to be used for the submission process."
   artifact:
     required: false
-    description: "The plugin zip artifact to be published."
+    description: "The extension zip artifact to be published."
   zip:
     required: false
     description: "This is an alias to artifact argument."

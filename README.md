@@ -2,9 +2,9 @@
   <a href="https://github.com/plasmo-corp/bpp/actions"><img alt="typescript-action status" src="https://github.com/plasmo-corp/bpp/workflows/build-test/badge.svg"></a>
 </p>
 
-# Browser Plugin Publisher
+# Browser Platform Publisher
 
-Use this action to publish your browser plugin to every browser plugin marketplace. This action and its dependencies are fully open source under the MIT license. The core modules are:
+Use this action to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are fully open source under the MIT license. The core modules are:
 
 - [Browser Market Submit](https://github.com/plasmo-corp/bms)
 - [Mozilla Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/mwu)
@@ -31,7 +31,7 @@ Copy the content of your `keys.json` into a github secret with a name of your ch
 
 ```yaml
 steps:
-  - name: Browser Plugin Publish
+  - name: Browser Platform Publish
     uses: plasmo-corp/bpp@v2
     with:
       keys: ${{ secrets.BPP_KEYS }}
@@ -45,7 +45,7 @@ steps:
     uses: browser-actions/setup-chrome@latest
     with:
       chrome-version: latest
-  - name: Browser Plugin Publish
+  - name: Browser Platform Publish
     uses: plasmo-corp/bpp@v2
     env:
       PUPPETEER_EXECUTABLE_PATH: /opt/hostedtoolcache/chromium/latest/x64/chrome
@@ -57,7 +57,7 @@ steps:
 
 ```yaml
 steps:
-  - name: Browser Plugin Publish
+  - name: Browser Platform Publish
     uses: plasmo-corp/bpp@v2
     with:
       artifact: build/artifact.zip
