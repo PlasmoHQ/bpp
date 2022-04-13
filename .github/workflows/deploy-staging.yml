@@ -1,7 +1,11 @@
 name: Staging deployment
 # rebuild any PRs and main branch changes
 on:
+  workflow_dispatch:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
