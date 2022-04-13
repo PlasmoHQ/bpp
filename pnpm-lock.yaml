@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@actions/core': 1.6.0
   '@jest/globals': 27.5.1
-  '@plasmo-corp/bms': 1.7.0
+  '@plasmo-corp/bms': 1.8.0
   '@plasmo-corp/rps': 1.2.1
   '@trivago/prettier-plugin-sort-imports': 3.2.0
   '@types/node': 17.0.23
@@ -22,7 +22,7 @@ specifiers:
 
 dependencies:
   '@actions/core': 1.6.0
-  '@plasmo-corp/bms': 1.7.0
+  '@plasmo-corp/bms': 1.8.0
 
 devDependencies:
   '@jest/globals': 27.5.1
@@ -729,8 +729,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@plasmo-corp/bms/1.7.0:
-    resolution: {integrity: sha512-zM/ue3K3zf8im5dsTGFLysxTEsWuVha2SYbXC3ZRRsUNBO3/365R0Qewx4MoC+WvpGhJu8x7tHaxQ/pnnm93fw==}
+  /@plasmo-corp/bms/1.8.0:
+    resolution: {integrity: sha512-bKkf5qfPrebWYLyV8LomTzVOaua8eZRf52Px0rclmTcBwOZgwQNwY4GknjIbeq/Tlg2VPEth1xGJgphR7KNgUA==}
     dependencies:
       '@plasmo-corp/cwu': 2.3.0
       '@plasmo-corp/ewu': 0.5.1
