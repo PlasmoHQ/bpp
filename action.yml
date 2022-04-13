@@ -14,9 +14,6 @@ inputs:
   zip:
     required: false
     description: "This is an alias to artifact argument."
-  notes:
-    required: false
-    description: "A release note cataloging changes."
   verbose:
     required: false
     description: "Print out more verbose logging."
