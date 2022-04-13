@@ -66,6 +66,10 @@ steps:
 
 This works if you're targeting a group of browsers that share a similar format, such as Chrome or Edge.
 
+# Support
+
+Join the [Discord channel](https://discord.browser.market)!
+
 ## Acknowledgements
 
 - [web-ext-deploy](https://github.com/avi12/web-ext-deploy) by [avi12](https://github.com/avi12)
