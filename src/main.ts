@@ -29,6 +29,8 @@ async function run(): Promise<void> {
     const artifact = getInput("zip") || getInput("artifact")
     const versionFile = getInput("version-file")
 
+    const notes = getInput("notes")
+
     const verbose = !!getInput("verbose")
 
     if (verbose) {
@@ -51,7 +53,7 @@ async function run(): Promise<void> {
       throw new Error("No artifact found for deployment")
     }
 
-    // Enrich keys with zip artifact if needed
+    // Enrich keys with zip artifact and notes as needed
     browserEntries.forEach((browser: BrowserName) => {
       if (!keys[browser].zip) {
         if (!artifact) {
@@ -62,6 +64,10 @@ async function run(): Promise<void> {
       }
       if (!keys[browser].versionFile) {
         keys[browser].versionFile = versionFile
+      }
+
+      if (!!notes) {
+        keys[browser].notes = notes
       }
 
       keys[browser].verbose = verbose
@@ -99,7 +105,9 @@ async function run(): Promise<void> {
       }
     })
   } catch (error) {
-    if (error instanceof Error) setFailed(`🛑 HALT: ${error.message}`)
+    if (error instanceof Error) {
+      setFailed(`🛑 HALT: ${error.message}`)
+    }
   }
 }
 
