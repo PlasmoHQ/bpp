@@ -23,7 +23,7 @@
       }
     },
     "Chrome": {
-      "description": "For refreshToken and clientId, follow: https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md",
+      "description": "For refreshToken and clientId, follow: https://github.com/plasmo-corp/cwu/blob/main/token.md",
       "type": "object",
       "properties": {
         "extId": {
@@ -32,11 +32,11 @@
         },
         "refreshToken": {
           "type": "string",
-          "description": "Read: https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md"
+          "description": "See: https://github.com/plasmo-corp/cwu/blob/main/token.md"
         },
         "clientId": {
           "type": "string",
-          "description": "Read: https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md"
+          "description": "See: https://github.com/plasmo-corp/cwu/blob/main/token.md"
         },
         "zip": {
           "type": "string"
