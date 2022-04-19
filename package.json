@@ -1,6 +1,6 @@
 {
   "name": "@plasmo/bpp",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "description": "Browser Platform Publisher",
   "main": "lib/main.js",
@@ -30,15 +30,15 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "1.6.0",
-    "@plasmo-corp/bms": "1.9.0"
+    "@plasmo-corp/bms": "1.10.0"
   },
   "devDependencies": {
     "@jest/globals": "27.5.1",
     "@plasmo-corp/rps": "1.2.1",
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
-    "@types/node": "17.0.24",
-    "@typescript-eslint/eslint-plugin": "5.19.0",
-    "@typescript-eslint/parser": "5.19.0",
+    "@types/node": "17.0.25",
+    "@typescript-eslint/eslint-plugin": "5.20.0",
+    "@typescript-eslint/parser": "5.20.0",
     "esbuild": "0.14.36",
     "eslint": "8.13.0",
     "eslint-config-prettier": "8.5.0",
