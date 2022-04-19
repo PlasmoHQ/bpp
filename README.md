@@ -4,7 +4,7 @@
 
 # Browser Platform Publisher
 
-Use this action to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are fully open source under the MIT license. The core modules are:
+A GitHub action from [plasmo](https://www.plasmo.com/) to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are fully open source under the MIT license. The core modules are:
 
 - [Browser Market Submit](https://github.com/plasmo-corp/bms)
 - [Mozilla Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/mwu)
@@ -69,12 +69,6 @@ This works if you're targeting a group of browsers that share a similar format, 
 # Support
 
 Join the [Discord channel](https://discord.browser.market)!
-
-## Acknowledgements
-
-- [web-ext-deploy](https://github.com/avi12/web-ext-deploy) by [avi12](https://github.com/avi12)
-- [chrome-webstore-upload-cli](https://github.com/fregante/chrome-webstore-upload-cli) by [fregante](https://github.com/fregante)
-- [web-ext](https://github.com/mozilla/web-ext) by [mozilla](https://github.com/mozilla)
 
 # License
 
