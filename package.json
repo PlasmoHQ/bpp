@@ -29,7 +29,7 @@
   "author": "Plasmo Corp. <foss@plasmo.com>",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "1.6.0",
+    "@actions/core": "1.8.0",
     "@plasmo-corp/bms": "1.10.0"
   },
   "devDependencies": {
