@@ -33,7 +33,7 @@
     "@plasmo-corp/bms": "1.10.0"
   },
   "devDependencies": {
-    "@jest/globals": "27.5.1",
+    "@jest/globals": "28.1.0",
     "@plasmo-corp/rps": "1.2.1",
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
     "@types/node": "17.0.25",
@@ -44,10 +44,10 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-jest": "26.1.4",
     "eslint-plugin-prettier": "4.0.0",
-    "jest": "27.5.1",
+    "jest": "28.1.0",
     "js-yaml": "4.1.0",
     "prettier": "2.6.2",
-    "ts-jest": "27.1.4",
+    "ts-jest": "28.0.2",
     "typescript": "4.6.3"
   }
 }
