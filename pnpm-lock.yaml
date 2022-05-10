@@ -4,7 +4,7 @@ specifiers:
   '@actions/core': 1.6.0
   '@jest/globals': 27.5.1
   '@plasmo-corp/bms': 1.10.0
-  '@plasmo-corp/rps': 1.2.1
+  '@plasmo-corp/rps': 1.2.9
   '@trivago/prettier-plugin-sort-imports': 3.2.0
   '@types/node': 17.0.25
   '@typescript-eslint/eslint-plugin': 5.20.0
@@ -26,7 +26,7 @@ dependencies:
 
 devDependencies:
   '@jest/globals': 27.5.1
-  '@plasmo-corp/rps': 1.2.1
+  '@plasmo-corp/rps': 1.2.9
   '@trivago/prettier-plugin-sort-imports': 3.2.0_prettier@2.6.2
   '@types/node': 17.0.25
   '@typescript-eslint/eslint-plugin': 5.20.0_b9ac9b5656ce5dffade639fcf5e491bf
@@ -263,12 +263,16 @@ packages:
     resolution: {integrity: sha512-oG0ej7efjEXxb4UgE+klVx+3j4MVo+A2vCzm7OUN4CLo6WhQ+vSOD2yJ8m7B+DghObxtLxt3EfgMWpq+AsWehQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.17.0
     dev: true
 
   /@babel/parser/7.17.9:
     resolution: {integrity: sha512-vqUSBLP8dQHFPdPi9bc5GK9vRkYHJ49fsZdtoJ8EQ8ibpwk5rPKfvNIwChB0KVXcIjcepEBBd2VHC5r9Gy8ueg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.17.0
     dev: true
 
   /@babel/plugin-syntax-async-generators/7.8.4_@babel+core@7.17.9:
@@ -770,8 +774,8 @@ packages:
       jsonwebtoken: 8.5.1
     dev: false
 
-  /@plasmo-corp/rps/1.2.1:
-    resolution: {integrity: sha512-dIX+3ffeeCNyuM2iGxv14EiodsbGOCZECcPruUf+GPEqCvQ/lH+ecCu83x20PHaDFCxZU0tgDxMzMpUSbS2axw==}
+  /@plasmo-corp/rps/1.2.9:
+    resolution: {integrity: sha512-3kTnvMHvz77h2myffBZdFo2i1DlhFr5LXQBKQe7pa8gnsoYwxElPUKpT/K7v5aeKZ0R+//nJZFvKHcYTSOB7NQ==}
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3
