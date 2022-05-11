@@ -7,9 +7,9 @@
 A GitHub action from [plasmo](https://www.plasmo.com/) to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are fully open source under the MIT license. The core modules are:
 
 - [Browser Market Submit](https://github.com/PlasmoHQ/bms)
-- [Mozilla Webstore Upload](https://www.npmjs.com/package/@PlasmoHQ/mwu)
-- [Chrome Webstore Upload](https://www.npmjs.com/package/@PlasmoHQ/cwu)
-- [Edge Webstore Upload](https://www.npmjs.com/package/@PlasmoHQ/ewu)
+- [Mozilla Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/mwu)
+- [Chrome Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/cwu)
+- [Edge Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/ewu)
 
 The action is updated regularly and is field-tested in [cex](https://github.com/PlasmoHQ/cex/actions)
 
