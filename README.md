@@ -1,17 +1,17 @@
 <p align="center">
-  <a href="https://github.com/plasmo-corp/bpp/actions"><img alt="typescript-action status" src="https://github.com/plasmo-corp/bpp/workflows/build-test/badge.svg"></a>
+  <a href="https://github.com/PlasmoHQ/bpp/actions"><img alt="typescript-action status" src="https://github.com/PlasmoHQ/bpp/workflows/build-test/badge.svg"></a>
 </p>
 
 # Browser Platform Publisher
 
 A GitHub action from [plasmo](https://www.plasmo.com/) to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are fully open source under the MIT license. The core modules are:
 
-- [Browser Market Submit](https://github.com/plasmo-corp/bms)
-- [Mozilla Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/mwu)
-- [Chrome Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/cwu)
-- [Edge Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/ewu)
+- [Browser Market Submit](https://github.com/PlasmoHQ/bms)
+- [Mozilla Webstore Upload](https://www.npmjs.com/package/@PlasmoHQ/mwu)
+- [Chrome Webstore Upload](https://www.npmjs.com/package/@PlasmoHQ/cwu)
+- [Edge Webstore Upload](https://www.npmjs.com/package/@PlasmoHQ/ewu)
 
-The action is updated regularly and is field-tested in [cex](https://github.com/plasmo-corp/cex/actions)
+The action is updated regularly and is field-tested in [cex](https://github.com/PlasmoHQ/cex/actions)
 
 ## Usage
 
@@ -19,7 +19,7 @@ First, create a `keys.json` in your favorite text editor (preferably one that su
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v2/keys.schema.json"
+  "$schema": "https://raw.githubusercontent.com/PlasmoHQ/bpp/v2/keys.schema.json"
 }
 ```
 
@@ -32,7 +32,7 @@ Copy the content of your `keys.json` into a github secret with a name of your ch
 ```yaml
 steps:
   - name: Browser Platform Publish
-    uses: plasmo-corp/bpp@v2
+    uses: PlasmoHQ/bpp@v2
     with:
       keys: ${{ secrets.BPP_KEYS }}
 ```
@@ -46,7 +46,7 @@ steps:
     with:
       chrome-version: latest
   - name: Browser Platform Publish
-    uses: plasmo-corp/bpp@v2
+    uses: PlasmoHQ/bpp@v2
     env:
       PUPPETEER_EXECUTABLE_PATH: /opt/hostedtoolcache/chromium/latest/x64/chrome
     with:
@@ -58,7 +58,7 @@ steps:
 ```yaml
 steps:
   - name: Browser Platform Publish
-    uses: plasmo-corp/bpp@v2
+    uses: PlasmoHQ/bpp@v2
     with:
       artifact: build/artifact.zip
       keys: ${{ secrets.BPP_KEYS }}
