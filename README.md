@@ -1,6 +1,27 @@
 <p align="center">
-  <a href="https://github.com/PlasmoHQ/bpp/actions"><img alt="typescript-action status" src="https://github.com/PlasmoHQ/bpp/workflows/build-test/badge.svg"></a>
+<a href="https://plasmo.com">
+<img alt="plasmo logo" width=75% src="plasmo.png" />
+</a>
 </p>
+
+<p align="center">
+  <a aria-label="License" href="https://github.com/PlasmoHQ/examples/blob/main/license.md">
+    <img src="https://img.shields.io/github/license/PlasmoHQ/examples?style=flat-square"/>
+  </a>
+  <a aria-label="NPM version" href="https://www.npmjs.com/package/plasmo">
+    <img alt="" src="https://img.shields.io/npm/v/plasmo?style=flat-square">
+  </a>
+  <a aria-label="Discord" href="https://discord.browser.market">
+    <img src="https://img.shields.io/discord/946290204443025438?style=flat-square"/>
+  </a>
+  <a aria-label="Build status" href="https://github.com/PlasmoHQ/bpp/actions">
+    <img alt="typescript-action status" src="https://github.com/PlasmoHQ/bpp/workflows/build-test/badge.svg">
+  </a>
+  <a aria-label="" href="https://github.com/PlasmoHQ/bpp/actions">
+    <img alt="number of contributors" src="https://img.shields.io/github/contributors/PlasmoHQ/bpp?style=flat-square">
+  </a>
+</p>
+
 
 # Browser Platform Publisher
 
