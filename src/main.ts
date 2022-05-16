@@ -4,7 +4,7 @@ import type {
   EdgeOptions,
   FirefoxOptions,
   OperaOptions
-} from "@plasmo-corp/bms"
+} from "@plasmohq/bms"
 import {
   BrowserName,
   deployChrome,
@@ -12,7 +12,7 @@ import {
   deployFirefox,
   deployOpera,
   supportedBrowserSet
-} from "@plasmo-corp/bms"
+} from "@plasmohq/bms"
 
 type Keys = {
   [BrowserName.Chrome]: ChromeOptions
