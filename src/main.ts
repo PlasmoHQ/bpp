@@ -7,10 +7,10 @@ import type {
 } from "@plasmohq/bms"
 import {
   BrowserName,
-  deployChrome,
-  deployEdge,
-  deployFirefox,
-  deployOpera,
+  submitChrome,
+  submitEdge,
+  submitFirefox,
+  submitOpera,
   supportedBrowserSet
 } from "@plasmohq/bms"
 
@@ -21,8 +21,12 @@ type Keys = {
   [BrowserName.Edge]: EdgeOptions
 }
 
+const tag = (prefix: string) => `${prefix.padEnd(9)} |`
+
 async function run(): Promise<void> {
   try {
+    info(`🟣 Plasmo Browser Platform Publish v2`)
+
     // All the keys necessary to deploy the extension
     const keys: Keys = JSON.parse(getInput("keys", { required: true }))
     // Path to the zip file to be deployed
@@ -57,7 +61,9 @@ async function run(): Promise<void> {
     browserEntries.forEach((browser: BrowserName) => {
       if (!keys[browser].zip) {
         if (!artifact) {
-          warning(`🤖 SKIP: No artifact available to submit for ${browser}`)
+          warning(
+            `${tag("🟡 SKIP")} No artifact available to submit for ${browser}`
+          )
         } else {
           keys[browser].zip = artifact
         }
@@ -81,17 +87,17 @@ async function run(): Promise<void> {
 
     const deployPromises = browserEntries.map((browser) => {
       if (!keys[browser].zip) return false
-      info(`📦 QUEUE: Prepare for ${browser} submission`)
+      info(`${tag("🟡 QUEUE")} Prepare for ${browser} submission`)
 
       switch (browser) {
         case BrowserName.Chrome:
-          return deployChrome(keys[browser])
+          return submitChrome(keys[browser])
         case BrowserName.Firefox:
-          return deployFirefox(keys[browser])
+          return submitFirefox(keys[browser])
         case BrowserName.Opera:
-          return deployOpera(keys[browser])
+          return submitOpera(keys[browser])
         case BrowserName.Edge:
-          return deployEdge(keys[browser])
+          return submitEdge(keys[browser])
       }
     })
 
@@ -99,14 +105,14 @@ async function run(): Promise<void> {
 
     results.forEach((result, index) => {
       if (result.status === "rejected") {
-        setFailed(`🛑 FAIL: ${result.reason}`)
+        setFailed(`${tag("🔴 ERROR")} ${result.reason}`)
       } else if (result.value) {
-        info(`🚀 DONE: ${browserEntries[index]} submission successful`)
+        info(`${tag("🟢 DONE")} ${browserEntries[index]} submission successful`)
       }
     })
   } catch (error) {
     if (error instanceof Error) {
-      setFailed(`🛑 HALT: ${error.message}`)
+      setFailed(`${tag("🔴 ERROR")} ${error.message}`)
     }
   }
 }

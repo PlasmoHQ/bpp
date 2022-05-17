@@ -23,7 +23,7 @@
       }
     },
     "Chrome": {
-      "description": "For refreshToken and clientId, follow: https://github.com/plasmo-corp/cwu/blob/main/token.md",
+      "description": "For refreshToken and clientId, follow: https://github.com/PlasmoHQ/chrome-webstore-api/blob/main/token.md",
       "type": "object",
       "properties": {
         "extId": {
@@ -32,11 +32,11 @@
         },
         "refreshToken": {
           "type": "string",
-          "description": "See: https://github.com/plasmo-corp/cwu/blob/main/token.md"
+          "description": "See: https://github.com/PlasmoHQ/chrome-webstore-api/blob/main/token.md"
         },
         "clientId": {
           "type": "string",
-          "description": "See: https://github.com/plasmo-corp/cwu/blob/main/token.md"
+          "description": "See: https://github.com/PlasmoHQ/chrome-webstore-api/blob/main/token.md"
         },
         "zip": {
           "type": "string"
