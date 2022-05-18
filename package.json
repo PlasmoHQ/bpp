@@ -12,7 +12,7 @@
     "format-check": "prettier --check **/*.ts",
     "package": "esbuild src/main.ts --platform=node --minify --bundle --outfile=dist/index.js",
     "test": "jest",
-    "all": "run-s format lint package test"
+    "all": "run-s format package test"
   },
   "repository": {
     "type": "git",
