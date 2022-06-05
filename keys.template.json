@@ -20,5 +20,18 @@
     "packageId": "123",
     "csrftoken": "abcd",
     "sessionid": "abcd"
+  },
+  "safari": {
+    "bundleId": "com.plasmo.mock",
+    "appName": "Plasmo Mock",
+    "appCategory": "developer-tools",
+    "appleId": "DEVELOPER_APPLE_ID",
+    "teamId": "APPLE_DEVELOPER_TEAM_ID",
+    "teamName": "Plasmo Corp.",
+    "keyId": "APP_STORE_CONNECT_API_KEY_ID",
+    "issuerId": "APP_STORE_CONNECT_API_ISSUER_ID",
+    "key": "APP_STORE_CONNECT_API_KEY",
+    "matchPassword": "YOUR_MATCH_ENCRYPTION_PASSWORD",
+    "matchGitUrl": "YOUR_MATCH_REPO"
   }
 }

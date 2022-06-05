@@ -1,6 +1,6 @@
 {
   "name": "@plasmo/bpp",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "private": true,
   "description": "Browser Platform Publisher",
   "main": "lib/main.js",
@@ -29,7 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "1.8.2",
-    "@plasmohq/bms": "1.13.0"
+    "@plasmohq/bms": "1.14.0"
   },
   "devDependencies": {
     "@jest/globals": "28.1.0",

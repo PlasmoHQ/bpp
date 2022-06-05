@@ -19,6 +19,9 @@
         },
         "edge": {
           "$ref": "#/definitions/Edge"
+        },
+        "safari": {
+          "$ref": "#/definitions/Safari"
         }
       }
     },
@@ -126,6 +129,163 @@
         }
       },
       "required": ["packageId", "csrftoken", "sessionid"]
+    },
+    "Safari": {
+      "type": "object",
+      "properties": {
+        "zip": {
+          "type": "string"
+        },
+        "bundleId": {
+          "type": "string",
+          "description": "i.e. com.plasmo.mock"
+        },
+        "extensionBundleId": {
+          "type": "string",
+          "description": "i.e. com.plasmo.mock.extension"
+        },
+        "appName": {
+          "type": "string",
+          "description": "i.e. Plasmo Mock"
+        },
+        "appCategory": {
+          "type": "string",
+          "description": "last component of LSApplicationCategoryType (i.e. business)"
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "defaults to iOS and macOS"
+        },
+        "buildNumber": {
+          "type": "number",
+          "description": "defaults to GITHUB_RUN_NUMBER"
+        },
+        "appleId": {
+          "type": "string",
+          "description": "Your Apple email address"
+        },
+        "appleDevPortalId": {
+          "type": "string",
+          "description": "Apple Developer Account email address"
+        },
+        "teamName": {
+          "type": "string",
+          "description": "i.e. Plasmo Corp."
+        },
+        "teamId": {
+          "type": "string",
+          "description": "i.e. Q2CBPJ58CA"
+        },
+        "itunesConnectId": {
+          "type": "string",
+          "description": "App Store Connect Account email address"
+        },
+        "itcTeamName": {
+          "type": "string",
+          "description": "i.e. \"Company Name\" for Apple IDs in multiple teams"
+        },
+        "itcTeamId": {
+          "type": "string",
+          "description": "i.e. \"18742801\" for Apple IDs in multiple teams"
+        },
+        "provisioningProfiles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "bundleId": { "type": "string" },
+              "platform": { "enum": ["ios", "macos"] },
+              "type": { "enum": ["appstore", "adhoc", "development", "enterprise", "developer_id", "mac_installer_distribution"] },
+              "name": { "type": "string" }
+            }
+          },
+          "description": "array of ProvisioningProfiles"
+        },
+        "keyId": {
+          "type": "string",
+          "description": "i.e. \"D383SF739\""
+        },
+        "key": {
+          "type": "string",
+          "description": "i.e. \"-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHknlhdlYdLu\n-----END PRIVATE KEY-----\""
+        },
+        "issuerId": {
+          "type": "string",
+          "description": "i.e. \"6053b7fe-68a8-4acb-89be-165aa6465141\""
+        },
+        "duration": {
+          "type": "number",
+          "description": "optional (maximum 1200)"
+        },
+        "matchPassword": {
+          "type": "string",
+          "description": "shared storage encryption password"
+        },
+        "matchStorageMode": {
+          "type": "string",
+          "description": "defaults to git"
+        },
+        "matchGitUrl": {
+          "type": "string",
+          "description": "for git"
+        },
+        "matchGitBranch": {
+          "type": "string",
+          "description": "for git"
+        },
+        "matchGitBasicAuthorization": {
+          "type": "string",
+          "description": "for git"
+        },
+        "matchGitBearerAuthorization": {
+          "type": "string",
+          "description": "for git"
+        },
+        "matchGitPrivateKey": {
+          "type": "string",
+          "description": "for git"
+        },
+        "matchGoogleCloudBucketName": {
+          "type": "string",
+          "description": "for Google Cloud"
+        },
+        "matchGoogleCloudKeysFile": {
+          "type": "string",
+          "description": "for Google Cloud"
+        },
+        "matchGoogleCloudProjectId": {
+          "type": "string",
+          "description": "for Google Cloud"
+        },
+        "matchS3Region": {
+          "type": "string",
+          "description": "for S3"
+        },
+        "matchS3AccessKey": {
+          "type": "string",
+          "description": "for S3"
+        },
+        "matchS3SecretAccessKey": {
+          "type": "string",
+          "description": "for S3"
+        },
+        "matchS3Bucket": {
+          "type": "string",
+          "description": "for S3"
+        },
+        "workspace": {
+          "type": "string",
+          "description": "non-tmp static directory to generate workspace to (for file system debugging or project exports)"
+        },
+        "verbose": {
+          "type": "boolean",
+          "description": "toggle more detailed logs"
+        }
+      },
+      "required": ["bundleId", "appName", "appCategory", "keyId", "key", "issuerId"]
     }
   }
 }
