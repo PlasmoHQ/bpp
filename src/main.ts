@@ -3,7 +3,8 @@ import type {
   ChromeOptions,
   EdgeOptions,
   FirefoxOptions,
-  OperaOptions
+  OperaOptions,
+  SafariOptions,
 } from "@plasmohq/bms"
 import {
   BrowserName,
@@ -11,6 +12,7 @@ import {
   submitEdge,
   submitFirefox,
   submitOpera,
+  submitSafari,
   supportedBrowserSet
 } from "@plasmohq/bms"
 
@@ -19,6 +21,7 @@ type Keys = {
   [BrowserName.Firefox]: FirefoxOptions
   [BrowserName.Opera]: OperaOptions
   [BrowserName.Edge]: EdgeOptions
+  [BrowserName.Safari]: SafariOptions
 }
 
 const tag = (prefix: string) => `${prefix.padEnd(9)} |`
@@ -98,6 +101,8 @@ async function run(): Promise<void> {
           return submitOpera(keys[browser])
         case BrowserName.Edge:
           return submitEdge(keys[browser])
+        case BrowserName.Safari:
+          return submitSafari(keys[browser])
       }
     })
 
