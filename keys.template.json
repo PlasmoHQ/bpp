@@ -2,6 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v2/keys.schema.json",
   "chrome": {
     "clientId": "123",
+    "clientSecret": "123",
     "refreshToken": "789",
     "extId": "abcd"
   },
