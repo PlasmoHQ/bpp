@@ -6,7 +6,7 @@ import { cwd, env, execPath } from "process"
 
 const indexScript = resolve(cwd(), "dist", "index.js")
 
-test.only("happy path", async () => {
+test("happy path", async () => {
   const templateKeysPath = resolve(cwd(), "..", "..", "keys.template.json")
 
   const templateKeys = await readFile(templateKeysPath, "utf8")

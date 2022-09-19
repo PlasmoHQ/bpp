@@ -14,9 +14,6 @@
         "firefox": {
           "$ref": "#/definitions/Firefox"
         },
-        "opera": {
-          "$ref": "#/definitions/Opera"
-        },
         "edge": {
           "$ref": "#/definitions/Edge"
         }
@@ -112,14 +109,6 @@
         "packageId": {
           "type": "string",
           "description": "Get it from https://addons.opera.com/developer/package/PACKAGE_ID"
-        },
-        "sessionid": {
-          "type": "string",
-          "description": "npx web-ext-deploy --get-cookies=opera"
-        },
-        "csrftoken": {
-          "type": "string",
-          "description": "npx web-ext-deploy --get-cookies=opera"
         },
         "zip": {
           "type": "string"

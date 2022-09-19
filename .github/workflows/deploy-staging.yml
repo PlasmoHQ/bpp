@@ -35,7 +35,7 @@ jobs:
       - run: pnpm run package
 
       - run: cp -r packages/bpp/dist dist
-      - run: cp packages/bpp/src/initialize-node.js dist/
+
       - run: cp action.yml dist/
       - run: cp README.md dist/
       - run: cp keys.schema.json dist/
