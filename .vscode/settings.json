@@ -1,0 +1,25 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.configPath": ".prettierrc.cjs",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/.turbo": true,
+    "**/.next": true,
+    "**/.swc": true,
+    "**/*.log": true
+  },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.activeBackground": "#0b3f87" // Change this color!
+  },
+  "git.detectSubmodulesLimit": 99
+}

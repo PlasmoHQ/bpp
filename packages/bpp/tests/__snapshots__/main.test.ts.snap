@@ -2,14 +2,14 @@
 
 exports[`get verbose flag successfully 1`] = `
 "🟣 Plasmo Browser Platform Publish v2
-::debug::{\\"artifact\\":\\"artifacts.zip\\",\\"versionFile\\":\\"\\",\\"verbose\\":true}
+::debug::{"artifact":"artifacts.zip","versionFile":"","verbose":true}
 ::debug::chrome
 "
 `;
 
 exports[`happy path 1`] = `
 "🟣 Plasmo Browser Platform Publish v2
-::debug::{\\"artifact\\":\\"artifacts.zip\\",\\"versionFile\\":\\"\\",\\"verbose\\":false}
+::debug::{"artifact":"artifacts.zip","versionFile":"","verbose":false}
 ::debug::chrome,firefox,edge,opera
 "
 `;

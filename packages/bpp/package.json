@@ -6,13 +6,14 @@
   "main": "lib/main.js",
   "scripts": {
     "dev": "run-p dev:*",
-    "dev:build": "esbuild src/main.ts --sourcemap --bundle --watch --platform=node --outfile=dist/index.js",
+    "dev:compile": "esbuild src/main.ts --sourcemap --bundle --watch --platform=node --outfile=dist/index.js",
     "dev:test": "jest --watch",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
-    "package": "esbuild src/main.ts --platform=node --minify --bundle --outfile=dist/index.js",
+    "build": "esbuild src/main.ts --platform=node --minify --bundle --outfile=dist/index.js",
     "test": "jest",
-    "all": "run-s format package test"
+    "test:ss": "jest --updateSnapshot",
+    "package": "run-s format build test"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "1.9.1",
-    "@plasmohq/bms": "1.14.0"
+    "@plasmohq/bms": "workspace:*"
   },
   "devDependencies": {
     "@jest/globals": "29.0.3",
