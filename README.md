@@ -24,14 +24,14 @@
 
 # Browser Platform Publisher
 
-A GitHub action from [plasmo](https://www.plasmo.com/) to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are fully open source under the MIT license. The core modules are:
+A GitHub action from [plasmo](https://www.plasmo.com/) to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are fully open-source under the MIT license. The core modules are:
 
 - [Browser Market Submit](https://github.com/PlasmoHQ/bms)
 - [Mozilla Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/mwu)
 - [Chrome Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/cwu)
 - [Edge Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/ewu)
 
-The action is updated regularly and is field-tested in [cex](https://github.com/PlasmoHQ/cex/actions)
+The action is updated regularly and tested in [cex](https://github.com/PlasmoHQ/cex/actions)
 
 ## Usage
 
@@ -57,7 +57,7 @@ steps:
       keys: ${{ secrets.BPP_KEYS }}
 ```
 
-**NOTE**: If you skipped the `zip` parameter in your keys, and that your extension artifact is understood by the browser you specified, you can specify an `artifact` action parameter:
+**NOTE**: If you skipped the `zip` parameter in your keys, and your extension artifact is understood by the browser you specified, you can specify an `artifact` action parameter:
 
 ```yaml
 steps:
