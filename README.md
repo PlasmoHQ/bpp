@@ -57,22 +57,6 @@ steps:
       keys: ${{ secrets.BPP_KEYS }}
 ```
 
-**NOTE**: If you're publishing to the Opera store, you will need to set up Chromium for puppeteer before running `bpp`. In v3, we will hopefully deprecate the Puppeteer approach altogether (since it's quite a leaky abstraction), or have an option for BPP to download and set up the browser for you.
-
-```yaml
-steps:
-  - name: Setup Chrome
-    uses: browser-actions/setup-chrome@latest
-    with:
-      chrome-version: latest
-  - name: Browser Platform Publish
-    uses: PlasmoHQ/bpp@v2
-    env:
-      PUPPETEER_EXECUTABLE_PATH: /opt/hostedtoolcache/chromium/latest/x64/chrome
-    with:
-      keys: ${{ secrets.BPP_KEYS }}
-```
-
 **NOTE**: If you skipped the `zip` parameter in your keys, and that your extension artifact is understood by the browser you specified, you can specify an `artifact` action parameter:
 
 ```yaml
