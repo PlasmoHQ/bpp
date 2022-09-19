@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
       - name: Cache pnpm modules
         uses: actions/cache@v3
         with:
@@ -26,4 +28,4 @@ jobs:
         with:
           node-version: 16.x
           cache: "pnpm"
-      - run: pnpm run all
+      - run: pnpm run package

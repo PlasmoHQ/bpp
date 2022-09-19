@@ -1,13 +1,14 @@
 import { expect, test } from "@jest/globals"
 import { ExecFileSyncOptions, execFileSync } from "child_process"
 import { readFile } from "fs/promises"
-import { join } from "path"
+import { resolve } from "path"
 import { cwd, env, execPath } from "process"
 
-const indexScript = join(cwd(), "dist", "index.js")
+const indexScript = resolve(cwd(), "dist", "index.js")
 
-test("happy path", async () => {
-  const templateKeysPath = join(cwd(), "keys.template.json")
+test.only("happy path", async () => {
+  const templateKeysPath = resolve(cwd(), "..", "..", "keys.template.json")
+
   const templateKeys = await readFile(templateKeysPath, "utf8")
 
   env["INPUT_KEYS"] = templateKeys
