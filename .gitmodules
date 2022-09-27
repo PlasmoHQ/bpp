@@ -10,6 +10,6 @@
 [submodule "packages/mozilla-addons-api"]
 	path = packages/mozilla-addons-api
 	url = git@github.com:PlasmoHQ/mozilla-addons-api.git
-[submodule "packages/safari-webstore-upload"]
-	path = packages/safari-webstore-upload
-	url = git@github.com:plasmo-corp/safari-webstore-upload.git
+[submodule "packages/safari-webstore-api"]
+	path = packages/safari-webstore-api
+	url = git@github.com:plasmo-corp/safari-webstore-api.git
