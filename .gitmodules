@@ -1,15 +1,15 @@
 [submodule "packages/bms"]
 	path = packages/bms
-	url = git@github.com:plasmo-corp/bms.git
+	url = git@github.com:PlasmoHQ/bms.git
 [submodule "packages/edge-addons-api"]
 	path = packages/edge-addons-api
 	url = git@github.com:PlasmoHQ/edge-addons-api.git
 [submodule "packages/chrome-webstore-api"]
 	path = packages/chrome-webstore-api
-	url = git@github.com:plasmo-corp/chrome-webstore-api.git
+	url = git@github.com:PlasmoHQ/chrome-webstore-api.git
 [submodule "packages/mozilla-addons-api"]
 	path = packages/mozilla-addons-api
 	url = git@github.com:PlasmoHQ/mozilla-addons-api.git
 [submodule "packages/safari-webstore-api"]
 	path = packages/safari-webstore-api
-	url = git@github.com:plasmo-corp/safari-webstore-api.git
+	url = git@github.com:PlasmoHQ/safari-webstore-api.git
