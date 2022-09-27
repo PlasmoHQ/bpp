@@ -2,7 +2,8 @@
   "name": "p1asm0-bpp",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "!packages/itero-testbed-api"
   ],
   "scripts": {
     "build": "turbo run build",
