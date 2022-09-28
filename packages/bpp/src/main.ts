@@ -1,16 +1,15 @@
 import { debug, getInput, info, setFailed, warning } from "@actions/core"
-import type {
-  ChromeOptions,
-  EdgeOptions,
-  FirefoxOptions,
-  OperaOptions
-} from "@plasmohq/bms"
 import {
   BrowserName,
+  type ChromeOptions,
+  type EdgeOptions,
+  type FirefoxOptions,
+  type IteroOptions,
+  type OperaOptions,
   submitChrome,
   submitEdge,
   submitFirefox,
-  submitOpera,
+  submitItero,
   supportedBrowserSet
 } from "@plasmohq/bms"
 
@@ -19,6 +18,7 @@ type Keys = {
   [BrowserName.Firefox]: FirefoxOptions
   [BrowserName.Opera]: OperaOptions
   [BrowserName.Edge]: EdgeOptions
+  [BrowserName.Itero]: IteroOptions
 }
 
 const tag = (prefix: string) => `${prefix.padEnd(9)} |`
@@ -94,10 +94,10 @@ async function run(): Promise<void> {
           return submitChrome(keys[browser])
         case BrowserName.Firefox:
           return submitFirefox(keys[browser])
-        case BrowserName.Opera:
-          return submitOpera(keys[browser])
         case BrowserName.Edge:
           return submitEdge(keys[browser])
+        case BrowserName.Itero:
+          return submitItero(keys[browser])
       }
     })
 

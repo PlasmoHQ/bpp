@@ -3,7 +3,7 @@ name: Major version rolling deployment
 
 # Bump this version accordingly as the action matures
 env:
-  VERSION: v2
+  VERSION: v3
 
 on:
   workflow_dispatch:

@@ -17,9 +17,9 @@
     "productId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
     "accessTokenUrl": "https://login.microsoftonline.com/aaaaaaa-aaaa-bbbb-cccc-dddddddddddd/oauth2/v2.0/token"
   },
-  "opera": {
-    "packageId": "123",
-    "csrftoken": "abcd",
-    "sessionid": "abcd"
+  "itero": {
+    "privateKey": "",
+    "token": "",
+    "userId": ""
   }
 }

@@ -13,6 +13,3 @@
 [submodule "packages/safari-webstore-api"]
 	path = packages/safari-webstore-api
 	url = git@github.com:PlasmoHQ/safari-webstore-api.git
-[submodule "packages/itero-testbed-api"]
-	path = packages/itero-testbed-api
-	url = https://github.com/PlasmoHQ/itero-testbed-api.git

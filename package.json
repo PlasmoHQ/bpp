@@ -2,20 +2,20 @@
   "name": "p1asm0-bpp",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "!packages/itero-testbed-api"
+    "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build --filter=\"!@plasmohq/safari-*\"",
     "package": "turbo run package --filter=@plasmo/bpp",
     "publish": "pnpm --filter=\"@plasmohq/**\" publish",
-    "v": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version"
+    "v": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version",
+    "status": "pnpm --filter \"./packages/**\" --parallel -r exec git remote -v"
   },
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "3.5.2",
     "esbuild": "0.15.9",
     "prettier": "2.7.1",
-    "turbo": "1.5.3"
+    "turbo": "1.5.4"
   },
   "packageManager": "pnpm@7.12.2"
 }
