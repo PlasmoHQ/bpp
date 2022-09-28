@@ -25,7 +25,7 @@ const tag = (prefix: string) => `${prefix.padEnd(9)} |`
 
 async function run(): Promise<void> {
   try {
-    info(`🟣 Plasmo Browser Platform Publish v2`)
+    info(`🟣 Plasmo Browser Platform Publish v3`)
 
     // All the keys necessary to deploy the extension
     const keys: Keys = JSON.parse(getInput("keys", { required: true }))
