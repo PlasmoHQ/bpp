@@ -16,8 +16,27 @@
         },
         "edge": {
           "$ref": "#/definitions/Edge"
+        },
+        "itero": {
+          "$ref": "#/definitions/Itero"
         }
       }
+    },
+    "Itero": {
+      "description": "Generated the submit token from the Itero Dashboard: https://itero.plasmo.com/",
+      "type": "object",
+      "properties": {
+        "privateKey": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "required": ["privateKey", "token", "userId"]
     },
     "Chrome": {
       "description": "For refreshToken and clientId, follow: https://github.com/PlasmoHQ/chrome-webstore-api/blob/main/token.md",

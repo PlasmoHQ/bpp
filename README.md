@@ -24,14 +24,13 @@
 
 # Browser Platform Publisher
 
-A GitHub action from [plasmo](https://www.plasmo.com/) to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are fully open-source under the MIT license. The core modules are:
+A GitHub action from [Plasmo](https://www.plasmo.com/) to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are MIT licensed. The core modules are:
 
 - [Browser Market Submit](https://github.com/PlasmoHQ/bms)
-- [Mozilla Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/mwu)
-- [Chrome Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/cwu)
-- [Edge Webstore Upload](https://www.npmjs.com/package/@plasmo-corp/ewu)
-
-The action is updated regularly and tested in [cex](https://github.com/PlasmoHQ/cex/actions)
+- [Chrome Webstore API](https://github.com/PlasmoHQ/chrome-webstore-api)
+- [Mozilla Addons API](https://github.com/PlasmoHQ/mozilla-addons-api)
+- [Edge Addons API](https://github.com/PlasmoHQ/edge-addons-api)
+- [Itero TestBed API](https://github.com/PlasmoHQ/itero-testbed-api)
 
 ## Usage
 
@@ -39,7 +38,7 @@ First, create a `keys.json` in your favorite text editor (preferably one that su
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/PlasmoHQ/bpp/v2/keys.schema.json"
+  "$schema": "https://raw.githubusercontent.com/PlasmoHQ/bpp/v3/keys.schema.json"
 }
 ```
 
@@ -52,17 +51,17 @@ Copy the content of your `keys.json` into a github secret with a name of your ch
 ```yaml
 steps:
   - name: Browser Platform Publish
-    uses: PlasmoHQ/bpp@v2
+    uses: PlasmoHQ/bpp@v3
     with:
       keys: ${{ secrets.BPP_KEYS }}
 ```
 
-**NOTE**: If you skipped the `zip` parameter in your keys, and your extension artifact is understood by the browser you specified, you can specify an `artifact` action parameter:
+**NOTE**: If you skipped the `zip` parameter in your keys, and your extension artifact is understood by the browser you specified, you can declare an `artifact` action parameter:
 
 ```yaml
 steps:
   - name: Browser Platform Publish
-    uses: PlasmoHQ/bpp@v2
+    uses: PlasmoHQ/bpp@v3
     with:
       artifact: build/artifact.zip
       keys: ${{ secrets.BPP_KEYS }}
@@ -76,4 +75,4 @@ Join the [Discord channel](https://www.plasmo.com/s/d)!
 
 # License
 
-[MIT](./license) ⭐ [Plasmo Corp.](https://plasmo.com)
+[MIT](./LICENSE) ⭐ [Plasmo Corp.](https://plasmo.com)
