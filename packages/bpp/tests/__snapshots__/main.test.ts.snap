@@ -10,6 +10,6 @@ exports[`get verbose flag successfully 1`] = `
 exports[`happy path 1`] = `
 "🟣 Plasmo Browser Platform Publish v2
 ::debug::{"artifact":"artifacts.zip","versionFile":"","verbose":false}
-::debug::chrome,firefox,edge
+::debug::chrome,firefox,edge,itero
 "
 `;
