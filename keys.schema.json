@@ -36,21 +36,24 @@
     },
     "Common": {
       "description": "Common properties",
-      "zip": {
-        "type": "string",
-        "definitions": "The zip file containing the extension. manifest.json but be in the root of the zip file."
-      },
-      "file": {
-        "type": "string",
-        "definitions": "Alias to zip"
-      },
-      "notes": {
-        "type": "string",
-        "description": "Provide notes for certification to the Edge Add-ons reviewers"
-      },
-      "verbose": {
-        "type": "boolean",
-        "description": "Enable verbose logging"
+      "type": "object",
+      "properties": {
+        "zip": {
+          "type": "string",
+          "description": "The zip file containing the extension. manifest.json but be in the root of the zip file."
+        },
+        "file": {
+          "type": "string",
+          "description": "Alias to zip"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Provide notes for certification to the Edge Add-ons reviewers"
+        },
+        "verbose": {
+          "type": "boolean",
+          "description": "Enable verbose logging"
+        }
       }
     },
     "Itero": {
