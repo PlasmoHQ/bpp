@@ -2,6 +2,7 @@ import { debug, getInput, info, setFailed, warning } from "@actions/core"
 import {
   BrowserName,
   type ChromeOptions,
+  CommonOptions,
   type EdgeOptions,
   type FirefoxOptions,
   type IteroOptions,
@@ -22,6 +23,8 @@ type Keys = {
 }
 
 const tag = (prefix: string) => `${prefix.padEnd(9)} |`
+
+const hasBundleFile = (opt: CommonOptions) => !!opt.zip || !!opt.file
 
 async function run(): Promise<void> {
   try {
@@ -51,7 +54,7 @@ async function run(): Promise<void> {
     }
 
     const hasAtLeastOneZip =
-      !!artifact || browserEntries.some((b) => !!keys[b].zip)
+      !!artifact || browserEntries.some((b) => hasBundleFile(keys[b]))
 
     if (!hasAtLeastOneZip) {
       throw new Error("No artifact found for deployment")
@@ -59,7 +62,7 @@ async function run(): Promise<void> {
 
     // Enrich keys with zip artifact and notes as needed
     browserEntries.forEach((browser: BrowserName) => {
-      if (!keys[browser].zip || !keys[browser].file) {
+      if (!hasBundleFile(keys[browser])) {
         if (!artifact) {
           warning(
             `${tag("🟡 SKIP")} No artifact available to submit for ${browser}`
