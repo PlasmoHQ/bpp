@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v2/keys.schema.json",
+  "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v3/keys.schema.json",
   "chrome": {
     "clientId": "123",
     "clientSecret": "123",
