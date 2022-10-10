@@ -89,7 +89,7 @@ async function run(): Promise<void> {
     }
 
     const deployPromises = browserEntries.map((browser) => {
-      if (!keys[browser].zip || !keys[browser].file) {
+      if (!hasBundleFile(keys[browser])) {
         return false
       }
       info(`${tag("🟡 QUEUE")} Prepare for ${browser} submission`)
