@@ -30,7 +30,7 @@ async function run(): Promise<void> {
     // All the keys necessary to deploy the extension
     const keys: Keys = JSON.parse(getInput("keys", { required: true }))
     // Path to the zip file to be deployed
-    const artifact = getInput("zip") || getInput("artifact")
+    const artifact = getInput("file") || getInput("zip") || getInput("artifact")
     const versionFile = getInput("version-file")
 
     const notes = getInput("notes")
@@ -59,7 +59,7 @@ async function run(): Promise<void> {
 
     // Enrich keys with zip artifact and notes as needed
     browserEntries.forEach((browser: BrowserName) => {
-      if (!keys[browser].zip) {
+      if (!keys[browser].zip || !keys[browser].file) {
         if (!artifact) {
           warning(
             `${tag("🟡 SKIP")} No artifact available to submit for ${browser}`
@@ -86,7 +86,9 @@ async function run(): Promise<void> {
     }
 
     const deployPromises = browserEntries.map((browser) => {
-      if (!keys[browser].zip) return false
+      if (!keys[browser].zip || !keys[browser].file) {
+        return false
+      }
       info(`${tag("🟡 QUEUE")} Prepare for ${browser} submission`)
 
       switch (browser) {

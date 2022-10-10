@@ -9,17 +9,48 @@
       "type": "object",
       "properties": {
         "chrome": {
-          "$ref": "#/definitions/Chrome"
+          "allOf": [
+            { "$ref": "#/definitions/Common" },
+            { "$ref": "#/definitions/Chrome" }
+          ]
         },
         "firefox": {
-          "$ref": "#/definitions/Firefox"
+          "allOf": [
+            { "$ref": "#/definitions/Common" },
+            { "$ref": "#/definitions/Firefox" }
+          ]
         },
         "edge": {
-          "$ref": "#/definitions/Edge"
+          "allOf": [
+            { "$ref": "#/definitions/Common" },
+            { "$ref": "#/definitions/Edge" }
+          ]
         },
         "itero": {
-          "$ref": "#/definitions/Itero"
+          "allOf": [
+            { "$ref": "#/definitions/Common" },
+            { "$ref": "#/definitions/Itero" }
+          ]
         }
+      }
+    },
+    "Common": {
+      "description": "Common properties",
+      "zip": {
+        "type": "string",
+        "definitions": "The zip file containing the extension. manifest.json but be in the root of the zip file."
+      },
+      "file": {
+        "type": "string",
+        "definitions": "Alias to zip"
+      },
+      "notes": {
+        "type": "string",
+        "description": "Provide notes for certification to the Edge Add-ons reviewers"
+      },
+      "verbose": {
+        "type": "boolean",
+        "description": "Enable verbose logging"
       }
     },
     "Itero": {
@@ -58,9 +89,6 @@
           "type": "string",
           "description": "See: https://github.com/PlasmoHQ/chrome-webstore-api/blob/main/token.md"
         },
-        "zip": {
-          "type": "string"
-        },
         "target": {
           "type": "string",
           "description": "The target audience to publish to. Defaults to 'default'",
@@ -85,9 +113,6 @@
         "extId": {
           "type": "string",
           "description": "This is the extension UUID, get it from https://addons.mozilla.org/en-US/developers/addon/{ext-name}/edit, under Technical Details. If it is embedded in your manifest under gecko.id, omit this property."
-        },
-        "zip": {
-          "type": "string"
         }
       },
       "required": ["apiKey", "apiSecret"]
@@ -110,13 +135,6 @@
         "accessTokenUrl": {
           "type": "string",
           "description": "You can find your access token URL by visiting the Microsoft Partner Center:  https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
-        },
-        "zip": {
-          "type": "string"
-        },
-        "notes": {
-          "type": "string",
-          "description": "Provide notes for certification to the Edge Add-ons reviewers"
         }
       },
       "required": ["productId", "clientId", "clientSecret", "accessTokenUrl"]
@@ -129,15 +147,12 @@
           "type": "string",
           "description": "Get it from https://addons.opera.com/developer/package/PACKAGE_ID"
         },
-        "zip": {
-          "type": "string"
-        },
         "changelog": {
           "type": "string",
           "description": "Provide changelog for the Opera users"
         }
       },
-      "required": ["packageId", "csrftoken", "sessionid"]
+      "required": ["packageId"]
     }
   }
 }
