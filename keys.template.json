@@ -16,10 +16,5 @@
     "clientSecret": "abcdefg",
     "productId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
     "accessTokenUrl": "https://login.microsoftonline.com/aaaaaaa-aaaa-bbbb-cccc-dddddddddddd/oauth2/v2.0/token"
-  },
-  "itero": {
-    "privateKey": "",
-    "token": "",
-    "userId": ""
   }
 }

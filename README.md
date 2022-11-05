@@ -24,13 +24,12 @@
 
 # Browser Platform Publisher
 
-A GitHub action from [Plasmo](https://www.plasmo.com/) to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are MIT licensed. The core modules are:
+A GitHub action from [Plasmo](https://www.plasmo.com/) to publish your browser extension to every web store/add-ons marketplace. This action and its dependencies are open-sourced under the MIT license. The core modules are:
 
 - [Browser Market Submit](https://github.com/PlasmoHQ/bms)
 - [Chrome Webstore API](https://github.com/PlasmoHQ/chrome-webstore-api)
 - [Mozilla Addons API](https://github.com/PlasmoHQ/mozilla-addons-api)
 - [Edge Addons API](https://github.com/PlasmoHQ/edge-addons-api)
-- [Itero TestBed API](https://github.com/PlasmoHQ/itero-testbed-api)
 
 ## Usage
 
