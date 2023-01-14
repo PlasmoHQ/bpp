@@ -34,7 +34,7 @@
       "properties": {
         "zip": {
           "type": "string",
-          "description": "The zip file containing the extension. manifest.json but be in the root of the zip file."
+          "description": "The zip file containing the extension. `{version}` can be used in the name and will be replaced by the version in the manifest.json file."
         },
         "file": {
           "type": "string",

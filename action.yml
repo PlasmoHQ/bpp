@@ -7,7 +7,7 @@ branding:
 inputs:
   keys:
     required: true
-    description: "A JSON string containing the keys to be used for the submission process."
+    description: "A JSON string containing the keys to be used for the submission process. (This should be a secret)"
   artifact:
     required: false
     description: "The extension zip artifact to be published."
@@ -19,7 +19,7 @@ inputs:
     description: "This is an alias to artifact argument."
   notes:
     required: false
-    description: "A release note cataloging changes."
+    description: "A release note cataloging changes. (Edge only)"
   verbose:
     required: false
     description: "Print out more verbose logging."
