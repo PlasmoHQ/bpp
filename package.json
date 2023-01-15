@@ -11,10 +11,10 @@
     "v": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version"
   },
   "devDependencies": {
-    "@plasmohq/prettier-plugin-sort-imports": "3.5.4",
-    "esbuild": "0.15.13",
-    "prettier": "2.7.1",
-    "turbo": "1.6.3"
+    "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
+    "esbuild": "0.17.0",
+    "prettier": "2.8.3",
+    "turbo": "1.7.0"
   },
-  "packageManager": "pnpm@7.14.2"
+  "packageManager": "pnpm@7.25.0"
 }
