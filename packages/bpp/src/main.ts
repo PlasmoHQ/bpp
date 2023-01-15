@@ -21,7 +21,9 @@ type Keys = {
 
 const tag = (prefix: string) => `${prefix.padEnd(9)} |`
 
-const hasBundleFile = (opt: CommonOptions) => !!opt.zip || !!opt.file
+const getBundleFiles = (opt: CommonOptions) => opt.zip || opt.file
+
+const hasBundleFile = (opt: CommonOptions) => !!getBundleFiles(opt)
 
 async function run(): Promise<void> {
   try {
@@ -33,7 +35,7 @@ async function run(): Promise<void> {
     const artifact = getInput("file") || getInput("zip") || getInput("artifact")
     const versionFile = getInput("version-file")
 
-    const notes = getInput("notes")
+    const edgeNotes = getInput("notes") || getInput("edge-notes")
 
     const verbose = !!getInput("verbose")
 
@@ -50,34 +52,40 @@ async function run(): Promise<void> {
       throw new Error("No supported browser found")
     }
 
-    const hasAtLeastOneZip =
-      !!artifact || browserEntries.some((b) => hasBundleFile(keys[b]))
+    for (const browser of browserEntries) {
+      const fromInput = getInput(`${browser}-file`)
+      const fromKeys = getBundleFiles(keys[browser])
+      if (fromInput) {
+        keys[browser].zip = fromInput
+      } else if (fromKeys) {
+        keys[browser].zip = fromKeys
+      } else if (artifact) {
+        keys[browser].zip = artifact
+      } else {
+        warning(
+          `${tag("🟡 SKIP")} No artifact available to submit for ${browser}`
+        )
+      }
+
+      // override keys value if verbose/versionFile action input is set
+      if (verbose) {
+        keys[browser].verbose = verbose
+      }
+
+      if (versionFile) {
+        keys[browser].versionFile = versionFile
+      }
+    }
+
+    const hasAtLeastOneZip = browserEntries.some((b) => hasBundleFile(keys[b]))
 
     if (!hasAtLeastOneZip) {
       throw new Error("No artifact found for deployment")
     }
 
-    // Enrich keys with zip artifact and notes as needed
-    browserEntries.forEach((browser: BrowserName) => {
-      if (!hasBundleFile(keys[browser])) {
-        if (!artifact) {
-          warning(
-            `${tag("🟡 SKIP")} No artifact available to submit for ${browser}`
-          )
-        } else {
-          keys[browser].zip = artifact
-        }
-      }
-      if (!keys[browser].versionFile) {
-        keys[browser].versionFile = versionFile
-      }
-
-      if (!!notes) {
-        keys[browser].notes = notes
-      }
-
-      keys[browser].verbose = verbose
-    })
+    if (keys.edge && edgeNotes) {
+      keys.edge.notes = edgeNotes
+    }
 
     if (process.env.NODE_ENV === "test") {
       debug(JSON.stringify({ artifact, versionFile, verbose }))
