@@ -33,7 +33,7 @@ A GitHub action from [Plasmo](https://www.plasmo.com/) to publish your browser e
 
 ## Usage
 
- In order to use this action, you will need to create a json file that contains the configuration for each browser you wish to publish to.
+ In order to use this action, you will need to create a json file that contains the keys and optional configuration for each browser you wish to publish to.
 
 To help you create it, we have provided a [JSON schema](https://json-schema.org/) that can be used with editors that support it, such as Visual Studio Code. This schema will provide intellisense and validation to ensure that your configuration is correct.
 
@@ -45,7 +45,7 @@ To help you create it, we have provided a [JSON schema](https://json-schema.org/
 
 > **NOTE**: You should only specify the browsers you wish to publish to. If there are any invalid configuration, the action will fail! I.e, no empty key allowed such as `"chrome": {}`.
 
-Each browser options is made of the following:
+Each browser option is made of the following:
 
 * Mandatory browser specific tokens (see [token guide](https://github.com/PlasmoHQ/bms/blob/main/tokens.md))
 
@@ -55,10 +55,10 @@ Each browser options is made of the following:
       `{version}` can be used in the name and will be replaced by the version in the manifest.json file.
 
     * `file`: An alias for the zip property.
+
+    * `verbose`: Enable verbose logging for the specific browser.
   
-    * `notes`: Provide notes for certification to the Edge Add-ons reviewers.
-  
-    * `verbose`: Enable verbose logging.
+    * `notes`: [Edge Only] Provide notes for certification to the Edge Add-ons reviewers.
 
 The final json might look like this:
 
@@ -79,7 +79,7 @@ The final json might look like this:
     "apiSecret": "e%f253^gh"
   },
   "edge": {
-    "zip": "chromium_addon.zip",
+    "zip": "chromium_addon_{version}.zip",
     "clientId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
     "clientSecret": "ab#c4de6fg",
     "productId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
@@ -102,18 +102,23 @@ steps:
 ```
 
 ## Action Input Parameters (`with`)
-> The non-required ones will **override** those in the keys file.
+The following parameters can be used to override the configuration in the keys file.
+Specifying options here will **override** those in the keys file.
 ```yaml
   keys:
     required: true
     description: "A JSON string containing the keys to be used for the submission process. (This should be a secret)"
   artifact:
-    required: false
-    description: "The extension zip artifact to be published."
     alias: [zip, file]
-  notes:
     required: false
-    description: "A release note cataloging changes. (Edge only)"
+    description: "The extension zip artifact to be published on all stores."
+  opera-file/chrome-file/firefox-file/edge-file:
+    required: false
+    description: "The file to be published to a specific store."
+  notes:
+    alias: [edge-notes]
+    required: false
+    description: "[Edge only] A release note cataloging changes."
   verbose:
     required: false
     description: "Print out more verbose logging."
@@ -121,6 +126,21 @@ steps:
     required: false
     description: "The path to a json file with a version field, default to package.json."
 ```
+
+###  Custom input parameters example
+```yaml
+steps:
+  - name: Browser Platform Publish
+    uses: PlasmoHQ/bpp@v3
+    with:
+      keys: ${{ secrets.BPP_KEYS }}
+      chrome-file: "chrome/myext_chromium_${{ env.EXT_VERSION }}.zip"
+      edge-file: "edge/myext_edge_${{ env.EXT_VERSION }}.zip"
+      edge-notes: "This is a test submission"
+      version-file: "src/manifest.json"
+      verbose: true
+```
+
 # Support
 
 Join the [Discord channel](https://www.plasmo.com/s/d)!

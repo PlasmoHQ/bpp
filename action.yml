@@ -17,9 +17,24 @@ inputs:
   file:
     required: false
     description: "This is an alias to artifact argument."
+  chrome-file:
+    required: false
+    description: "The path to the Chrome extension zip file."
+  firefox-file:
+    required: false
+    description: "The path to the Firefox extension zip file."
+  edge-file:
+    required: false
+    description: "The path to the Edge extension zip file."
+  opera-file:
+    required: false
+    description: "The path to the Opera extension zip file."
   notes:
     required: false
     description: "A release note cataloging changes. (Edge only)"
+  edge-notes:
+    required: false
+    description: "This is an alias to notes argument."
   verbose:
     required: false
     description: "Print out more verbose logging."
