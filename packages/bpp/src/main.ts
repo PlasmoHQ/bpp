@@ -84,7 +84,7 @@ async function run(): Promise<void> {
     }
 
     if (keys.edge && edgeNotes) {
-        keys.edge.notes = edgeNotes
+      keys.edge.notes = edgeNotes
     }
 
     if (process.env.NODE_ENV === "test") {

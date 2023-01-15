@@ -52,11 +52,13 @@ Each browser option is made of the following:
 * Optional parameters:
     * `zip`: The zip file containing the extension. The manifest.json file must be in the root of the zip file.
   
-      `{version}` can be used in the name and will be replaced by the version in the manifest.json file.
+      `{version}` can be used in the name and will be replaced by the version from your versionFile.
 
     * `file`: An alias for the zip property.
 
     * `verbose`: Enable verbose logging for the specific browser.
+
+    * `versionFile`: Relative path to a json file which has a version field. Defaults to package.json
   
     * `notes`: [Edge Only] Provide notes for certification to the Edge Add-ons reviewers.
 
@@ -66,7 +68,7 @@ The final json might look like this:
 {
   "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v3/keys.schema.json",
   "chrome": {
-    "zip": "chromium_addon.zip",
+    "zip": "chromium_addon_{version}.zip",
     "clientId": "1280623",
     "clientSecret": "1!9us4",
     "refreshToken": "7&as$a89",
@@ -79,7 +81,7 @@ The final json might look like this:
     "apiSecret": "e%f253^gh"
   },
   "edge": {
-    "zip": "chromium_addon_{version}.zip",
+    "zip": "chromium_addon.zip",
     "clientId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
     "clientSecret": "ab#c4de6fg",
     "productId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
