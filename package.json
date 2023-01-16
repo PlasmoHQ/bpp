@@ -8,7 +8,7 @@
     "build": "turbo run build --filter=\"!@plasmohq/safari-*\"",
     "package": "turbo run package --filter=@plasmo/bpp",
     "pp": "pnpm --filter=\"@plasmohq/**\" publish",
-    "v": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version"
+    "v": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
   },
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
