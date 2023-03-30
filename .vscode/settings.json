@@ -21,5 +21,6 @@
     "titleBar.activeForeground": "#ffffff",
     "titleBar.activeBackground": "#0b3f87" // Change this color!
   },
-  "git.detectSubmodulesLimit": 99
+  "git.detectSubmodulesLimit": 99,
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

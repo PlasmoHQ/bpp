@@ -2,7 +2,7 @@ import { debug, getInput, info, setFailed, warning } from "@actions/core"
 import {
   BrowserName,
   type ChromeOptions,
-  CommonOptions,
+  type CommonOptions,
   type EdgeOptions,
   type FirefoxOptions,
   type OperaOptions,
