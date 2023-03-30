@@ -1,5 +1,5 @@
 import { expect, test } from "@jest/globals"
-import { ExecFileSyncOptions, execFileSync } from "child_process"
+import { type ExecFileSyncOptions, execFileSync } from "child_process"
 import { readFile } from "fs/promises"
 import { resolve } from "path"
 import { cwd, env, execPath } from "process"
