@@ -75,6 +75,11 @@
           "description": "The target audience to publish to. Defaults to 'default'",
           "enum": ["default", "trustedTesters"],
           "default": "default"
+        },
+        "uploadOnly": {
+          "type": "boolean",
+          "description": "Only upload the extension, do not publish it. Defaults to false",
+          "default": false
         }
       },
       "required": ["extId", "refreshToken", "clientId", "clientSecret"]
