@@ -4,7 +4,8 @@
     "clientId": "123",
     "clientSecret": "123",
     "refreshToken": "789",
-    "extId": "abcd"
+    "extId": "abcd",
+    "uploadOnly": true
   },
   "firefox": {
     "extId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
