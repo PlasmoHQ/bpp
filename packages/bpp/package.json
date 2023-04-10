@@ -1,6 +1,6 @@
 {
   "name": "@plasmo/bpp",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "private": true,
   "description": "Browser Platform Publisher",
   "main": "lib/main.js",

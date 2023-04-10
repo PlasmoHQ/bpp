@@ -5,10 +5,12 @@ import {
   type CommonOptions,
   type EdgeOptions,
   type FirefoxOptions,
+  type IteroOptions,
   type OperaOptions,
   submitChrome,
   submitEdge,
   submitFirefox,
+  submitItero,
   supportedBrowserSet
 } from "@plasmohq/bms"
 
@@ -17,6 +19,7 @@ type Keys = {
   [BrowserName.Firefox]: FirefoxOptions
   [BrowserName.Opera]: OperaOptions
   [BrowserName.Edge]: EdgeOptions
+  [BrowserName.Itero]: IteroOptions
 }
 
 const tag = (prefix: string) => `${prefix.padEnd(9)} |`
@@ -106,6 +109,8 @@ async function run(): Promise<void> {
           return submitFirefox(keys[browser])
         case BrowserName.Edge:
           return submitEdge(keys[browser])
+        case BrowserName.Itero:
+          return submitItero(keys[browser])
       }
     })
 

@@ -21,6 +21,7 @@ importers:
       '@jest/globals': 29.5.0
       '@plasmohq/chrome-webstore-api': workspace:*
       '@plasmohq/edge-addons-api': workspace:*
+      '@plasmohq/itero-testbed-api': 0.7.0
       '@plasmohq/mozilla-addons-api': workspace:*
       '@plasmohq/prettier-plugin-sort-imports': 3.6.3
       '@plasmohq/rps': 1.8.4
@@ -39,6 +40,7 @@ importers:
     dependencies:
       '@plasmohq/chrome-webstore-api': link:../chrome-webstore-api
       '@plasmohq/edge-addons-api': link:../edge-addons-api
+      '@plasmohq/itero-testbed-api': 0.7.0
       '@plasmohq/mozilla-addons-api': link:../mozilla-addons-api
       compare-versions: 6.0.0-rc.1
       fflate: 0.7.4
@@ -1475,6 +1477,12 @@ packages:
       read-pkg: 7.1.0
       shell-quote: 1.7.3
     dev: true
+
+  /@plasmohq/itero-testbed-api/0.7.0:
+    resolution: {integrity: sha512-7GJiGKqQtAnQujhvpbNf4WQHeUMr57qZPqbTKqkvC0KVCDvYqE8qz2bmlHwDyhd4y+46u2R6fkVR1Bp73XxTWA==}
+    dependencies:
+      got: 12.6.0
+    dev: false
 
   /@plasmohq/mystic-box/1.4.0:
     resolution: {integrity: sha512-QoMwhJYD7hrD4jf7SudKj4ndyAvyfCl0QSwc76pvnZRRmG72xeveXKAhXkCRpBQiZoVL9Ji2fNLdIjUO4K/4cg==}
