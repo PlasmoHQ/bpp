@@ -25,6 +25,12 @@
             { "$ref": "#/definitions/Common" },
             { "$ref": "#/definitions/Edge" }
           ]
+        },
+        "itero": {
+          "allOf": [
+            { "$ref": "#/definitions/Common" },
+            { "$ref": "#/definitions/Itero" }
+          ]
         }
       }
     },
@@ -124,6 +130,25 @@
         }
       },
       "required": ["productId", "clientId", "clientSecret", "accessTokenUrl"]
+    },
+    "Itero": {
+      "type": "object",
+      "description": "NOTE: Itero TestBed requires a paid subscription. See: https://itero.plasmo.com",
+      "properties": {
+        "privateKey": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "extensionId": {
+          "type": "string"
+        }
+      },
+      "required": ["privateKey", "token", "extensionId", "entityId"]
     },
     "Opera": {
       "type": "object",
