@@ -11,11 +11,11 @@
     "vp": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
   },
   "devDependencies": {
-    "@plasmohq/prettier-plugin-sort-imports": "3.6.3",
-    "esbuild": "0.17.14",
-    "prettier": "2.8.7",
-    "turbo": "1.8.8",
-    "typescript": "5.0.2"
+    "@plasmohq/prettier-plugin-sort-imports": "3.6.4",
+    "esbuild": "0.17.19",
+    "prettier": "2.8.8",
+    "turbo": "1.9.9",
+    "typescript": "5.0.4"
   },
   "packageManager": "pnpm@7.25.0"
 }
