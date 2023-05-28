@@ -13,3 +13,6 @@
 [submodule "packages/safari-webstore-api"]
 	path = packages/safari-webstore-api
 	url = git@github.com:PlasmoHQ/safari-webstore-api.git
+[submodule "packages/config"]
+	path = packages/config
+	url = https://github.com/PlasmoHQ/plasmo-config.git
