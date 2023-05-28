@@ -105,6 +105,15 @@
         "extId": {
           "type": "string",
           "description": "This is the extension UUID, get it from https://addons.mozilla.org/en-US/developers/addon/{ext-name}/edit, under Technical Details. If it is embedded in your manifest under gecko.id, omit this property."
+        },
+        "license": {
+          "type": "string",
+          "description": "The license for your extension. Defaults to 'all-right-reserved'. See: https://addons-server.readthedocs.io/en/latest/topics/api/licenses.html"
+        },
+        "channel": {
+          "type": "string",
+          "description": "The channel to publish to. Defaults to 'listed'.",
+          "enum": ["listed", "unlisted"]
         }
       },
       "required": ["apiKey", "apiSecret"]
