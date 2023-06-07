@@ -34,8 +34,8 @@
     "@plasmohq/bms": "workspace:*"
   },
   "devDependencies": {
-    "@plasmo/config": "workspace:*",
     "@jest/globals": "29.5.0",
+    "@plasmo/config": "workspace:*",
     "@plasmohq/prettier-plugin-sort-imports": "3.6.4",
     "@plasmohq/rps": "1.8.6",
     "@types/node": "20.2.5",
@@ -44,6 +44,6 @@
     "js-yaml": "4.1.0",
     "prettier": "2.8.8",
     "ts-jest": "29.1.0",
-    "typescript": "5.0.4"
+    "typescript": "5.1.3"
   }
 }
