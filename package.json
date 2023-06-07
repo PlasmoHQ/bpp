@@ -7,7 +7,7 @@
   "scripts": {
     "build": "turbo run build --filter=\"!@plasmohq/safari-*\"",
     "package": "turbo run package --filter=@plasmo/bpp",
-    "pp": "pnpm --filter=\"@plasmohq/**\" publish",
+    "pp": "pnpm--filter=\"!@plasmohq/safari-*\" publish",
     "vp": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
   },
   "devDependencies": {
