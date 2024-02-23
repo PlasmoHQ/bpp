@@ -39,7 +39,7 @@ To help you create it, we have provided a [JSON schema](https://json-schema.org/
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/PlasmoHQ/bpp/v3/keys.schema.json"
+  "$schema": "https://github.com/PlasmoHQ/bpp/raw/main/keys.schema.json"
 }
 ```
 
