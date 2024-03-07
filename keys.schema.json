@@ -136,6 +136,11 @@
         "accessTokenUrl": {
           "type": "string",
           "description": "You can find your access token URL by visiting the Microsoft Partner Center:  https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
+        },
+        "uploadOnly": {
+          "type": "boolean",
+          "description": "Only upload the extension, do not publish it. Defaults to false",
+          "default": false
         }
       },
       "required": ["productId", "clientId", "clientSecret", "accessTokenUrl"]
