@@ -1,17 +1,18 @@
 import { debug, getInput, info, setFailed, warning } from "@actions/core"
+
 import {
   BrowserName,
+  submitChrome,
+  submitEdge,
+  submitFirefox,
+  submitItero,
+  supportedBrowserSet,
   type ChromeOptions,
   type CommonOptions,
   type EdgeOptions,
   type FirefoxOptions,
   type IteroOptions,
-  type OperaOptions,
-  submitChrome,
-  submitEdge,
-  submitFirefox,
-  submitItero,
-  supportedBrowserSet
+  type OperaOptions
 } from "@plasmohq/bms"
 
 type Keys = {
@@ -37,7 +38,8 @@ async function run(): Promise<void> {
     // Path to the zip file to be deployed
     const artifact = getInput("file") || getInput("zip") || getInput("artifact")
     // Path to the source zip file for firefox submissions
-    const source = getInput("source") || getInput("sourceFile") || getInput("sourceZip")
+    const source =
+      getInput("source") || getInput("sourceFile") || getInput("sourceZip")
 
     const versionFile = getInput("version-file")
 
