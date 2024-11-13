@@ -36,6 +36,9 @@ async function run(): Promise<void> {
     const keys: Keys = JSON.parse(getInput("keys", { required: true }))
     // Path to the zip file to be deployed
     const artifact = getInput("file") || getInput("zip") || getInput("artifact")
+    // Path to the source zip file for firefox submissions
+    const source = getInput("source") || getInput("sourceFile") || getInput("sourceZip")
+
     const versionFile = getInput("version-file")
 
     const edgeNotes = getInput("notes") || getInput("edge-notes")
@@ -84,6 +87,10 @@ async function run(): Promise<void> {
 
     if (!hasAtLeastOneZip) {
       throw new Error("No artifact found for deployment")
+    }
+
+    if (keys.firefox && source) {
+      keys.firefox.sourceZip = source
     }
 
     if (keys.edge && edgeNotes) {
