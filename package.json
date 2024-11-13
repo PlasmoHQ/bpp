@@ -11,7 +11,7 @@
     "vp": "pnpm --filter \"./packages/**\" --parallel -r exec pnpm version --commit-hooks false --git-tag-version false --workspaces-update"
   },
   "devDependencies": {
-    "@plasmohq/prettier-plugin-sort-imports": "4.0.1",
+    "@ianvs/prettier-plugin-sort-imports": "4.4.0",
     "esbuild": "0.24.0",
     "prettier": "3.3.3",
     "turbo": "2.2.3",
