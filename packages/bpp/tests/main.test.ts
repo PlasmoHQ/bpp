@@ -1,8 +1,8 @@
-import { expect, test } from "@jest/globals"
-import { type ExecFileSyncOptions, execFileSync } from "child_process"
+import { execFileSync, type ExecFileSyncOptions } from "child_process"
 import { readFile } from "fs/promises"
 import { resolve } from "path"
 import { cwd, env, execPath } from "process"
+import { expect, test } from "@jest/globals"
 
 const indexScript = resolve(cwd(), "dist", "index.js")
 

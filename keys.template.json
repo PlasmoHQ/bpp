@@ -14,8 +14,7 @@
   },
   "edge": {
     "clientId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
-    "clientSecret": "abcdefg",
-    "productId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
-    "accessTokenUrl": "https://login.microsoftonline.com/aaaaaaa-aaaa-bbbb-cccc-dddddddddddd/oauth2/v2.0/token"
+    "apiKey": "abcdefg",
+    "productId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd"
   }
 }

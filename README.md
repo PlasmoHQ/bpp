@@ -88,9 +88,8 @@ The final json might look like this:
   "edge": {
     "zip": "chromium_addon.zip",
     "clientId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
-    "clientSecret": "ab#c4de6fg",
+    "apiKey": "ab#c4de6fg",
     "productId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
-    "accessTokenUrl": "https://login.microsoftonline.com/aaaaaaa-aaaa-bbbb-cccc-dddddddddddd/oauth2/v2.0/token",
     "notes": "This is a test submission"
   }
 }
