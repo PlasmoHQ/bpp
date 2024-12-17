@@ -129,13 +129,9 @@
           "type": "string",
           "description": "You can find your client ID by visiting the Microsoft Partner Center:  https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
         },
-        "clientSecret": {
+        "apiKey": {
           "type": "string",
-          "description": "You can find your client secret by visiting the Microsoft Partner Center:  https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
-        },
-        "accessTokenUrl": {
-          "type": "string",
-          "description": "You can find your access token URL by visiting the Microsoft Partner Center:  https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
+          "description": "You can find your api key by visiting the Microsoft Partner Center:  https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi"
         },
         "uploadOnly": {
           "type": "boolean",
