@@ -60,6 +60,10 @@ Each browser option is made of the following:
 
     * `versionFile`: Relative path to a json file which has a version field. Defaults to package.json
   
+    * `sourceZip`: The zip file containing the source code for Firefox submissions.
+
+    * `source` and `sourceFile`: Aliases for the `sourceZip` property.
+
     * `notes`: [Edge Only] Provide notes for certification to the Edge Add-ons reviewers.
 
 The final json might look like this:
@@ -76,6 +80,7 @@ The final json might look like this:
   },
   "firefox": {
     "file": "firefox_addon.xpi",
+    "sourceFile": "source.zip",
     "extId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
     "apiKey": "ab214c4d",
     "apiSecret": "e%f253^gh"
@@ -83,9 +88,8 @@ The final json might look like this:
   "edge": {
     "zip": "chromium_addon.zip",
     "clientId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
-    "clientSecret": "ab#c4de6fg",
+    "apiKey": "ab#c4de6fg",
     "productId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
-    "accessTokenUrl": "https://login.microsoftonline.com/aaaaaaa-aaaa-bbbb-cccc-dddddddddddd/oauth2/v2.0/token",
     "notes": "This is a test submission"
   }
 }
@@ -117,6 +121,10 @@ Specifying options here will **override** those in the keys file.
   opera-file/chrome-file/firefox-file/edge-file:
     required: false
     description: "The file to be published to a specific store."
+  source:
+    alias: [source-zip, source-file]
+    required: false
+    description: "The extension source zip artifact for Firefox submissions."
   notes:
     alias: [edge-notes]
     required: false

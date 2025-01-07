@@ -32,6 +32,15 @@ inputs:
   notes:
     required: false
     description: "A release note cataloging changes. (Edge only)"
+  source:
+    required: false
+    description: "The extension source zip file."
+  source-zip:
+    required: false
+    description: "This is an alias to source argument."
+  source-file:
+    required: false
+    description: "This is an alias to source argument."
   edge-notes:
     required: false
     description: "This is an alias to notes argument."
