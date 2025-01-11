@@ -37,7 +37,7 @@ async function run(): Promise<void> {
     // Path to the zip file to be deployed
     const artifact = getInput("file") || getInput("zip") || getInput("artifact")
     // Path to the source zip file for firefox submissions
-    const source = getInput("source") || getInput("sourceFile") || getInput("sourceZip")
+    const source = getInput("source") || getInput("source-file") || getInput("source-zip")
 
     const versionFile = getInput("version-file")
 
