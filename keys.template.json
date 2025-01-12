@@ -8,7 +8,7 @@
     "uploadOnly": true
   },
   "firefox": {
-    "extId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
+    "extId": "abcd",
     "apiKey": "abcd",
     "apiSecret": "efgh"
   },

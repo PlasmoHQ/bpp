@@ -81,7 +81,7 @@ The final json might look like this:
   "firefox": {
     "file": "firefox_addon.xpi",
     "sourceFile": "source.zip",
-    "extId": "aaaaaaa-aaaa-bbbb-cccc-dddddddddddd",
+    "extId": "akszypg",
     "apiKey": "ab214c4d",
     "apiSecret": "e%f253^gh"
   },
